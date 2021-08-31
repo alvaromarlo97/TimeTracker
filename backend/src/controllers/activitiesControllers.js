@@ -31,12 +31,29 @@ async function getOneById({ params }, res) {
   }
 }
 
-async function updateOneById(req, res) {
+async function updateOneActivity(req, res) {
+  const { activity } = req.params;
+  const dataToUpdate = req.body;
   try {
-    res.send('updateOneById works');
+    const updatedActivity = await Activity.findByIdAndUpdate(
+      activity,
+      dataToUpdate,
+      { new: true },
+    );
+    return res.json(updatedActivity);
   } catch (error) {
     res.status(500);
-    res.send(error);
+    return res.send(error);
+  }
+}
+async function deleteActivity({ activity }, res) {
+  try {
+    const { _id } = activity;
+    await Activity.findByIdAndDelete(_id);
+    res.send('The activity has been deleted');
+  } catch (error) {
+    res.status(404);
+    res.send(new Error('There is no activity'));
   }
 }
 
@@ -44,6 +61,7 @@ module.exports = {
   getAll,
   createOne,
   getOneById,
-  updateOneById,
+  updateOneActivity,
+  deleteActivity,
 
 };
