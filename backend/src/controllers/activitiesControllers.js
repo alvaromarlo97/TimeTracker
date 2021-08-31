@@ -74,7 +74,7 @@ async function putUpdate(req, res) {
     case 'timeUpdate':
       await setNewTime(req, res);
       break;
-    case 'updateOneActivity':
+    case 'activityUpdate':
       await updateOneActivity(req, res);
       break;
 
