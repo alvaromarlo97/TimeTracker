@@ -46,10 +46,10 @@ async function updateOneActivity(req, res) {
     return res.send(error);
   }
 }
-async function deleteActivity({ activity }, res) {
+async function deleteActivity({ params }, res) {
   try {
-    const { _id } = activity;
-    await Activity.findByIdAndDelete(_id);
+    const { activity } = params;
+    await Activity.findByIdAndDelete(activity);
     res.send('The activity has been deleted');
   } catch (error) {
     res.status(404);

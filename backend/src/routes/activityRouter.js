@@ -10,7 +10,7 @@ activityRouter
 
 activityRouter
   .route('/:activity')
-  .get(activityController.createOne)
+  .get(activityController.getOneById)
   .put(activityController.updateOneActivity)
   .delete(activityController.deleteActivity);
 
