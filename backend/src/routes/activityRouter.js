@@ -11,7 +11,7 @@ activityRouter
 activityRouter
   .route('/:activity')
   .get(activityController.getOneById)
-  .put(activityController.updateOneActivity)
+  .put(activityController.setNewTime)
   .delete(activityController.deleteActivity);
 
 module.exports = activityRouter;

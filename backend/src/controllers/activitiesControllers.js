@@ -33,7 +33,7 @@ async function getOneById({ params }, res) {
 
 async function updateOneActivity(req, res) {
   const { activity } = req.params;
-  const dataToUpdate = req.body;
+  const dataToUpdate = req.body.data;
   try {
     const updatedActivity = await Activity.findByIdAndUpdate(
       activity,
@@ -56,12 +56,39 @@ async function deleteActivity({ params }, res) {
     res.send(new Error('There is no activity'));
   }
 }
+async function setNewTime(req, res) {
+  const { activity } = req.params;
+  const dataToUpdate = req.body.data;
+  try {
+    const foundActivity = await Activity.findById(activity);
+    foundActivity.activityTime.push(dataToUpdate);
+    foundActivity.save();
+    res.json(foundActivity);
+  } catch (error) {
+    res.status(500);
+    res.send(error);
+  }
+}
+async function putUpdate(req, res) {
+  switch (req.body.type) {
+    case 'timeUpdate':
+      await setNewTime(req, res);
+      break;
+    case 'updateOneActivity':
+      await updateOneActivity(req, res);
+      break;
 
+    default:
+      break;
+  }
+}
 module.exports = {
   getAll,
   createOne,
   getOneById,
   updateOneActivity,
   deleteActivity,
+  setNewTime,
+  putUpdate,
 
 };
