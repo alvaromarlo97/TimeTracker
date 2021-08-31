@@ -51,7 +51,7 @@ async function updateOneUserById({ params: { userId }, body }, res) {
       { new: true },
     );
 
-    if (!updatedUser) return res.sendStatus(404);
+    // if (!updatedUser) return res.sendStatus(404);
 
     return res.json(updatedUser);
   } catch (error) {
