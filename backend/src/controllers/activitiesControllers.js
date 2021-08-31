@@ -50,10 +50,10 @@ async function deleteActivity({ params }, res) {
   try {
     const { activity } = params;
     await Activity.findByIdAndDelete(activity);
-    res.send('The activity has been deleted');
+    return res.send('The activity has been deleted');
   } catch (error) {
     res.status(404);
-    res.send(new Error('There is no activity'));
+    return res.send(new Error('There is no activity'));
   }
 }
 async function setNewTime(req, res) {
