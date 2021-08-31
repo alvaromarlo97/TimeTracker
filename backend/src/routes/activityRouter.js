@@ -1,0 +1,17 @@
+const express = require('express');
+const activityController = require('../controllers/activitiesControllers');
+
+const activityRouter = express.Router();
+
+activityRouter
+  .route('/')
+  .get(activityController.getAll)
+  .post(activityController.createOne);
+
+activityRouter
+  .route('/:activity')
+  .get(activityController.createOne)
+  .put(activityController.updateOneActivity)
+  .delete(activityController.deleteActivity);
+
+module.exports = activityRouter;
