@@ -2,7 +2,8 @@ const User = require('../models/user.model');
 
 async function getUsers({ query }, res) {
   try {
-    const foundUsers = await User.find(query);
+    const foundUsers = await User.find(query)
+      .populate('activities');
 
     res.json(foundUsers);
   } catch (error) {
@@ -21,7 +22,8 @@ async function createUser(req, res) {
 }
 async function getOneUserById({ params: { userId } }, res) {
   try {
-    const foundUser = await User.findById(userId);
+    const foundUser = await User.findById(userId)
+      .populate('activities');
 
     if (!foundUser) return res.sendStatus(404);
 
@@ -35,7 +37,7 @@ async function deleteOneUserById({ params: { userId } }, res) {
   try {
     await User.findByIdAndDelete(userId);
 
-    res.sendStatus(204);
+    res.send('The user has been deleted');
   } catch (error) {
     res.status(500);
     res.send(error);
