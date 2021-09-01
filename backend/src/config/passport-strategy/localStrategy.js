@@ -32,6 +32,9 @@ passport.use(
         if (!profile) {
           return done(null, false, { message: 'User not found' });
         }
+        if (!profile.isValidPassword(password)) {
+          return done(null, false, { message: 'Wrong password' });
+        }
         return done(null, profile, { message: 'Logged in Sucessfully' });
       } catch (error) {
         return done(null, false);
