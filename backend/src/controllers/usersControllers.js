@@ -47,7 +47,7 @@ async function updateOneUserById({ params: { userId }, body }, res) {
   try {
     const updatedUser = await User.findByIdAndUpdate(
       userId,
-      body,
+      { $addToSet: body },
       { new: true },
     );
 
