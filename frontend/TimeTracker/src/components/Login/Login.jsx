@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-no-bind */
 import React, { useState } from 'react';
 import {
@@ -10,7 +11,7 @@ import { useDispatch } from 'react-redux';
 import styles from './login.style';
 import logInUser from '../../redux/actions/userCreators';
 
-export default function Login() {
+export default function Login({ navigation }) {
   const dispatch = useDispatch();
   const [emailInputValue, setEmailInputValue] = useState('');
   const [passwordInputValue, setPasswordInputValue] = useState('');
@@ -21,9 +22,6 @@ export default function Login() {
       password: passwordInputValue,
     }));
   }
-
-  console.log(emailInputValue);
-  console.log(passwordInputValue);
 
   return (
     <View style={styles.container}>
@@ -41,6 +39,9 @@ export default function Login() {
       />
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.login}>Login</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.push('Clock')}>
+        <Text style={styles.login}>boton</Text>
       </TouchableOpacity>
     </View>
   );
