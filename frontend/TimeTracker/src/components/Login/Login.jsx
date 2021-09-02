@@ -31,12 +31,15 @@ export default function Login({ navigation }) {
       <Image source={require('../../public/image/sandclock.png')} style={styles.image} />
       <TextInput
         placeholder="email"
+        autoCorrect={false}
+        autoCapitalize="words"
         style={styles.email}
         onChangeText={(text) => setEmailInputValue(text)}
         value={emailInputValue}
       />
       <TextInput
         placeholder="password"
+        secureTextEntry
         style={styles.email1}
         onChangeText={(text) => setPasswordInputValue(text)}
         value={passwordInputValue}

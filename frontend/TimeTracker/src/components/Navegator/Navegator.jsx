@@ -22,7 +22,15 @@ export default function Navegator() {
               }}
               component={Login}
             />
-          ) : <Stack.Screen name="Clock" component={MyTimer} />}
+          ) : (
+            <Stack.Screen
+              name="Clock"
+              options={{
+                headerShown: false,
+              }}
+              component={MyTimer}
+            />
+          )}
 
       </Stack.Navigator>
     </NavigationContainer>
