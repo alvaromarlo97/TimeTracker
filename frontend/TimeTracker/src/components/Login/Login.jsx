@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-no-bind */
 import React, { useState } from 'react';
@@ -6,10 +7,12 @@ import {
   TextInput,
   TouchableOpacity,
   Text,
+  Image,
 } from 'react-native';
 import { useDispatch } from 'react-redux';
 import styles from './login.style';
 import logInUser from '../../redux/actions/userCreators';
+// import store from '../../redux/store';
 
 export default function Login({ navigation }) {
   const dispatch = useDispatch();
@@ -25,6 +28,7 @@ export default function Login({ navigation }) {
 
   return (
     <View style={styles.container}>
+      <Image source={require('../../public/image/sandclock.png')} style={styles.image} />
       <TextInput
         placeholder="email"
         style={styles.email}
