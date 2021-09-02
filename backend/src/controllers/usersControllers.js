@@ -11,15 +11,7 @@ async function getUsers({ query }, res) {
     res.send(error);
   }
 }
-async function createUser(req, res) {
-  try {
-    const newUser = await User.create(req.body);
-    return res.json(newUser);
-  } catch (error) {
-    res.status(404);
-    return res.send(new Error('There is no users'));
-  }
-}
+
 async function getOneUserById({ params: { userId } }, res) {
   try {
     const foundUser = await User.findById(userId)
@@ -47,7 +39,7 @@ async function updateOneUserById({ params: { userId }, body }, res) {
   try {
     const updatedUser = await User.findByIdAndUpdate(
       userId,
-      body,
+      { $addToSet: body },
       { new: true },
     );
 
@@ -62,7 +54,6 @@ async function updateOneUserById({ params: { userId }, body }, res) {
 
 module.exports = {
   getUsers,
-  createUser,
   getOneUserById,
   deleteOneUserById,
   updateOneUserById,
