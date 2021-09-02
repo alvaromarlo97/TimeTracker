@@ -9,14 +9,16 @@
  */
 
 import React from 'react';
-
+import { Provider } from 'react-redux';
 import Login from './src/components/Login/Login';
+import configureStore from './src/redux/store';
+
 // import MyTimer from './src/components/Main/Main';
 
-const App = () => (
-  <>
-    <Login />
-  </>
-);
-
-export default App;
+export default function App() {
+  return (
+    <Provider store={configureStore()}>
+      <Login />
+    </Provider>
+  );
+}
