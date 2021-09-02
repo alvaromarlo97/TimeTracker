@@ -10,12 +10,12 @@
 
 import React from 'react';
 
-// import Login from './src/components/Login/Login';
-import MyTimer from './src/components/Main/Main';
+import Login from './src/components/Login/Login';
+// import MyTimer from './src/components/Main/Main';
 
 const App = () => (
   <>
-    <MyTimer />
+    <Login />
   </>
 );
 
