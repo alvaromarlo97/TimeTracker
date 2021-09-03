@@ -28,7 +28,7 @@ export default function Login({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Image source={require('../../public/image/sandclock.png')} style={styles.image} />
+      <Image source={require('../../public/image/hourglass.png')} style={styles.image} />
       <TextInput
         placeholder="email"
         autoCorrect={false}

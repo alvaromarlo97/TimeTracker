@@ -23,6 +23,13 @@ export default StyleSheet.create({
     textAlign: 'center',
     borderRadius: 25,
     marginTop: 100,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 8,
+    },
+    shadowOpacity: 0.44,
+    shadowRadius: 5,
 
   },
   email1: {
@@ -35,6 +42,13 @@ export default StyleSheet.create({
     textAlign: 'center',
     borderRadius: 25,
     marginTop: 15,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 8,
+    },
+    shadowOpacity: 0.44,
+    shadowRadius: 5,
 
   },
   button: {
@@ -46,6 +60,14 @@ export default StyleSheet.create({
     backgroundColor: 'rgba(30,191,178,1)',
     borderRadius: 25,
     marginTop: 86,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 8,
+    },
+    shadowOpacity: 0.44,
+    shadowRadius: 5,
+
   },
   login: {
     fontFamily: 'arial',
