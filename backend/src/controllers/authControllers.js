@@ -23,7 +23,7 @@ async function logIn({ user }, res) {
     const token = jwt.sign(
       { user: data },
       process.env.JWT_SECRET,
-      { expiresIn: '1m' },
+      { expiresIn: '30m' },
     );
     const refreshToken = jwt.sign(
       { user: data },
@@ -55,7 +55,7 @@ async function createRefreshToken({ body: { refreshToken } }, res) {
     const token = jwt.sign(
       { user: data },
       process.env.JWT_SECRET,
-      { expiresIn: '1m' },
+      { expiresIn: '30m' },
     );
     return res.json({
       token,

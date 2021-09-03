@@ -11,13 +11,12 @@ import { useSelector } from 'react-redux';
 import styles from './activities.style';
 
 export default function Activities() {
-  const activities = useSelector(({ loggedUser }) => loggedUser.user.activities[0].activityName);
+  const activities = useSelector(({ loggedUser }) => loggedUser.user.activities);
   console.log(activities);
   return (
     <View style={styles.container}>
-      <Text>
-        {activities }
-      </Text>
+      {activities.map((element) => <Text key={element._id}>{element.activityName}</Text>)}
+
     </View>
   );
 }

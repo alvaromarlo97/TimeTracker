@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import styles from './main.style';
-import Activities from '../Activities/Activities';
 
 export default class StopWatch extends Component {
 
@@ -102,7 +101,6 @@ export default class StopWatch extends Component {
           <Text style={styles.buttonText}> CLEAR </Text>
  
         </TouchableOpacity>
-        <Activities></Activities>
  
       </View>
  

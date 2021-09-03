@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from '../Login/Login';
-import MyTimer from '../Main/Main';
+import MyTimer from '../Crono/Crono';
 import Register from '../Register/Register';
 
 const Stack = createNativeStackNavigator();
