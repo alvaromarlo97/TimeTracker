@@ -14,7 +14,6 @@ function loginUserReducer(loggedUser = {
     default:
       break;
   }
-  console.log(newLoggedUser);
 
   return newLoggedUser;
 }

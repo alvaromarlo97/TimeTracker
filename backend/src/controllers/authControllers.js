@@ -33,6 +33,7 @@ async function logIn({ user }, res) {
     return res.json({
       token,
       refreshToken,
+      user,
     });
   } catch (error) {
     res.status(500);

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable import/no-unresolved */
 import axios from 'axios';
 import { API_URL } from '@env';
@@ -5,9 +6,6 @@ import userTypes from './actionTypes';
 
 export default function logInUser(body) {
   return async (dispatch) => {
-    console.log(API_URL);
-    console.log(`${API_URL}/login`);
-    console.log(body);
     try {
       const { data } = await axios.post(`${API_URL}/login`, body);
       console.log(data);
@@ -22,15 +20,29 @@ export default function logInUser(body) {
 }
 export function RegisterUser(body) {
   return async (dispatch) => {
-    console.log(API_URL);
-    console.log(`${API_URL}/register`);
-    console.log(body);
     try {
       const { data } = await axios.post(`${API_URL}/register`, body);
-      console.log(data);
       dispatch({
         type: userTypes.REGISTER_USER,
         data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+export function LoadUserInfo(access_token, userId) {
+  return async (dispatch) => {
+    try {
+      const { datos } = await axios.post(`${API_URL}/api/user/${userId}`, {
+        Headers: {
+          Authorization: `Bearer ${access_token}`,
+        },
+      });
+
+      dispatch({
+        type: userTypes.LOAD_USER,
+        datos,
       });
     } catch (error) {
       console.log(error);

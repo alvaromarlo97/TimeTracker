@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
- 
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
- 
+import styles from './main.style';
+import Activities from '../Activities/Activities';
+
 export default class StopWatch extends Component {
- 
+
   constructor(props) {
     super(props);
  
@@ -86,7 +87,7 @@ export default class StopWatch extends Component {
         <TouchableOpacity
           onPress={this.onButtonStop}
           activeOpacity={0.6}
-          style={[styles.button, { backgroundColor:  '#FF6F00'}]} >
+          style={[styles.button]} >
  
           <Text style={styles.buttonText}>STOP</Text>
  
@@ -101,6 +102,7 @@ export default class StopWatch extends Component {
           <Text style={styles.buttonText}> CLEAR </Text>
  
         </TouchableOpacity>
+        <Activities></Activities>
  
       </View>
  
@@ -110,28 +112,3 @@ export default class StopWatch extends Component {
  
  
  
-const styles = StyleSheet.create({
-  MainContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  button: {
-    width: '80%',
-    paddingTop:8,
-    paddingBottom:8,
-    borderRadius:7,
-    marginTop: 10
-  },
-  buttonText:{
-      color:'#fff',
-      textAlign:'center',
-      fontSize: 20
-  },
-  counterText:{
- 
-    fontSize: 28,
-    color: '#000'
-  }
-});
