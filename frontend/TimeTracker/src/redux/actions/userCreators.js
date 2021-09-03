@@ -20,3 +20,20 @@ export default function logInUser(body) {
     }
   };
 }
+export function RegisterUser(body) {
+  return async (dispatch) => {
+    console.log(API_URL);
+    console.log(`${API_URL}/register`);
+    console.log(body);
+    try {
+      const { data } = await axios.post(`${API_URL}/register`, body);
+      console.log(data);
+      dispatch({
+        type: userTypes.REGISTER_USER,
+        data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}

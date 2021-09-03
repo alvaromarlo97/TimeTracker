@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from '../Login/Login';
 import MyTimer from '../Main/Main';
+import Register from '../Register/Register';
 
 const Stack = createNativeStackNavigator();
 
@@ -12,16 +13,27 @@ export default function Navegator() {
   return (
 
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        initialRouteName="Register"
+      >
         {!auth
           ? (
-            <Stack.Screen
-              name="Login"
-              options={{
-                headerShown: false,
-              }}
-              component={Login}
-            />
+            <>
+              <Stack.Screen
+                name="Register"
+                options={{
+                  headerShown: false,
+                }}
+                component={Register}
+              />
+              <Stack.Screen
+                name="Login"
+                options={{
+                  headerShown: false,
+                }}
+                component={Login}
+              />
+            </>
           ) : (
             <Stack.Screen
               name="Clock"

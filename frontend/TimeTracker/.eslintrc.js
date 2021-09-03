@@ -33,6 +33,9 @@ module.exports = {
       ts: 'never',
       tsx: 'never',
     }],
+    'react/jsx-no-bind': [1, {
+      allowFunctions: true,
+    }],
     'react/jsx-filename-extension': [1, {
       extensions: [
         '.jsx',
