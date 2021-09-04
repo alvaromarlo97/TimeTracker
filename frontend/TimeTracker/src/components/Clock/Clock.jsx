@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import styles from './main.style';
+import { StyleSheet, Text, SafeAreaView, TouchableOpacity } from 'react-native';
+import styles from './Clock.style';
 
 export default class StopWatch extends Component {
 
@@ -69,7 +69,7 @@ export default class StopWatch extends Component {
   render() {
  
     return (
-      <View style={styles.MainContainer}>
+      <SafeAreaView style={styles.MainContainer}>
  
         <Text style={styles.counterText}>{this.state.hours_Counter} :{this.state.minutes_Counter} : {this.state.seconds_Counter}</Text>
  
@@ -104,7 +104,7 @@ export default class StopWatch extends Component {
      
         
  
-      </View>
+      </SafeAreaView>
  
     );
   }

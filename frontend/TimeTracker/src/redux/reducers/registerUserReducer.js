@@ -14,7 +14,6 @@ function registerUserReducer(registeredUser = {
     default:
       break;
   }
-  console.log(newRegisteredUser);
 
   return newRegisteredUser;
 }

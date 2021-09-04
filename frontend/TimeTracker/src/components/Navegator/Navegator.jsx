@@ -48,7 +48,7 @@ export default function Navegator() {
               <Stack.Screen
                 name="MyTimer"
                 options={{
-                  headerShown: true,
+                  headerShown: false,
                 }}
                 component={MyTimer}
               />

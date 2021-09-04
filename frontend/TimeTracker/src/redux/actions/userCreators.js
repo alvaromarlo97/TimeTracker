@@ -8,7 +8,6 @@ export default function logInUser(body) {
   return async (dispatch) => {
     try {
       const { data } = await axios.post(`${API_URL}/login`, body);
-      console.log(data);
       dispatch({
         type: userTypes.LOGIN_USER,
         data,
@@ -34,9 +33,11 @@ export function RegisterUser(body) {
 export function loadActivity(activityId) {
   return async (dispatch) => {
     try {
+      const { data } = await axios.get(`${API_URL}/api/activity/${activityId.currentActivityId}`);
+
       dispatch({
         type: userTypes.LOAD_ACTIVITY,
-        activityId,
+        data,
       });
     } catch (error) {
       console.log(error);

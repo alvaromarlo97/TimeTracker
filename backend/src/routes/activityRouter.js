@@ -13,8 +13,8 @@ activityRouter
 
 activityRouter
   .route('/:activity')
-  .all(passport.authenticate('jwt', { session: false }))
   .get(activityController.getOneById)
+  .all(passport.authenticate('jwt', { session: false }))
   .put(activityController.putUpdate)
   .delete(activityController.deleteActivity);
 

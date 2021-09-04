@@ -4,7 +4,7 @@
 /* eslint-disable react/jsx-no-bind */
 import React from 'react';
 import {
-  View,
+  SafeAreaView,
   Text,
   TouchableOpacity,
 } from 'react-native';
@@ -22,10 +22,9 @@ export default function Activities({ navigation }) {
     }));
     navigation.push('MyTimer');
   }
-  const activities = useSelector(({ loggedUser }) => loggedUser.user.activities);
-  console.log(activities);
+  const activities = useSelector(({ loggedUser }) => loggedUser?.user?.activities);
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {activities.map((element) => (
         <>
           <TouchableOpacity
@@ -33,14 +32,13 @@ export default function Activities({ navigation }) {
             onPress={() => setActivity(element._id)}
             key={element._id}
           >
-            { console.log(element.activityName)}
-            <Text>
+            <Text key={element}>
               {element.activityName}
             </Text>
           </TouchableOpacity>
         </>
       ))}
 
-    </View>
+    </SafeAreaView>
   );
 }

@@ -4,7 +4,7 @@ export default StyleSheet.create({
   MainContainer: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'rgba(235,255,254,1)',
     paddingTop: 100,
 
   },

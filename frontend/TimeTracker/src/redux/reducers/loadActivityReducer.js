@@ -3,7 +3,7 @@ import loginActions from '../actions/actionTypes';
 function loadActivity(ActivityId = [], action) {
   let newActivityId = ActivityId;
   switch (action.type) {
-    case loginActions.LOAD_USER:
+    case loginActions.LOAD_ACTIVITY:
       newActivityId = {
         ...action.data,
         isAuthenticated: true,
@@ -12,7 +12,6 @@ function loadActivity(ActivityId = [], action) {
     default:
       break;
   }
-  console.log(newActivityId);
 
   return newActivityId;
 }
