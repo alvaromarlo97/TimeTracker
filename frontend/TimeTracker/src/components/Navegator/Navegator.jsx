@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from '../Login/Login';
+import Activities from '../Activities/Activities';
 import MyTimer from '../Crono/Crono';
 import Register from '../Register/Register';
 
@@ -35,13 +36,23 @@ export default function Navegator() {
               />
             </>
           ) : (
-            <Stack.Screen
-              name="Clock"
-              options={{
-                headerShown: false,
-              }}
-              component={MyTimer}
-            />
+            <>
+
+              <Stack.Screen
+                name="Activities"
+                options={{
+                  headerShown: false,
+                }}
+                component={Activities}
+              />
+              <Stack.Screen
+                name="MyTimer"
+                options={{
+                  headerShown: true,
+                }}
+                component={MyTimer}
+              />
+            </>
           )}
 
       </Stack.Navigator>

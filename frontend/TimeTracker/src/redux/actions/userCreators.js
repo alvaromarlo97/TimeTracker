@@ -31,6 +31,18 @@ export function RegisterUser(body) {
     }
   };
 }
+export function loadActivity(activityId) {
+  return async (dispatch) => {
+    try {
+      dispatch({
+        type: userTypes.LOAD_ACTIVITY,
+        activityId,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
 export function LoadUserInfo(access_token, userId) {
   return async (dispatch) => {
     try {

@@ -55,11 +55,11 @@ export default StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    width: 175,
+    width: 350,
     height: 69,
     backgroundColor: 'rgba(30,191,178,1)',
     borderRadius: 25,
-    marginTop: 86,
+    marginTop: 25,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,

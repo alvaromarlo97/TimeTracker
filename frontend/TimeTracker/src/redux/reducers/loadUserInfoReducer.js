@@ -1,10 +1,12 @@
 import loginActions from '../actions/actionTypes';
 
-function loadUserInfoReducer(UserInfo = [], action) {
-  let newUserInfo = UserInfo;
+function loginUserReducer(loggedUser = {
+  isAuthenticated: false,
+}, action) {
+  let newLoggedUser = loggedUser;
   switch (action.type) {
-    case loginActions.LOAD_USER:
-      newUserInfo = {
+    case loginActions.LOGIN_USER:
+      newLoggedUser = {
         ...action.data,
         isAuthenticated: true,
       };
@@ -12,9 +14,8 @@ function loadUserInfoReducer(UserInfo = [], action) {
     default:
       break;
   }
-  console.log(newUserInfo);
 
-  return newUserInfo;
+  return newLoggedUser;
 }
 
-export default loadUserInfoReducer;
+export default loginUserReducer;
