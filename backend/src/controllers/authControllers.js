@@ -55,7 +55,7 @@ async function createRefreshToken({ body: { refreshToken } }, res) {
     const token = jwt.sign(
       { user: data },
       process.env.JWT_SECRET,
-      { expiresIn: '30m' },
+      { expiresIn: '3000m' },
     );
     return res.json({
       token,
