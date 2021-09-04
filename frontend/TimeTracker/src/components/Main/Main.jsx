@@ -9,9 +9,9 @@ export default class StopWatch extends Component {
  
     this.state = {
       timer: null,
-      hours_Counter:'00',
-      minutes_Counter: '59',
-      seconds_Counter: '55',
+      hours_Counter:0,
+      minutes_Counter: 59,
+      seconds_Counter: 55,
       startDisable: false
     }
   }
@@ -24,24 +24,24 @@ export default class StopWatch extends Component {
  
     let timer = setInterval(() => {
  
-      let num = (Number(this.state.seconds_Counter) + 1).toString(),
+      let num = ((this.state.seconds_Counter) + 1),
         count = this.state.minutes_Counter;
         hour=this.state.hours_Counter;
 
-      if (Number(this.state.seconds_Counter) === 59) {
-        count = (Number(this.state.minutes_Counter) + 1).toString();
-        num = '00';
-        if(Number(this.state.minutes_Counter) === 59) {
-          hour = (Number(this.state.hours_Counter) + 1).toString();
-          num = '00';
-          count='00'
+      if ((this.state.seconds_Counter) === 59) {
+        count = ((this.state.minutes_Counter) + 1);
+        num = 0;
+        if((this.state.minutes_Counter) === 59) {
+          hour = ((this.state.hours_Counter) + 1);
+          num = 0;
+          count=0
         }
       }
  
       this.setState({
-        hours_Counter: hour.length == 1 ? '0' + hour : hour,
-        minutes_Counter: count.length == 1 ? '0' + count : count,
-        seconds_Counter: num.length == 1 ? '0' + num : num
+        hours_Counter: hour.length == 1 ? 0 + hour : hour,
+        minutes_Counter: count.length == 1 ? 0 + count : count,
+        seconds_Counter: num.length == 1 ? 0 + num : num
       });
     }, 1000);
     this.setState({ timer });
@@ -60,9 +60,9 @@ export default class StopWatch extends Component {
   onButtonClear = () => {
     this.setState({
       timer: null,
-      hours_Counter: '00',
-      minutes_Counter: '00',
-      seconds_Counter: '00',
+      hours_Counter: 0,
+      minutes_Counter: 0,
+      seconds_Counter: 0,
     });
   }
  
