@@ -8,15 +8,16 @@ import {
   SafeAreaView,
 
 } from 'react-native';
-import Clock from '../Clock/Clock';
+// import Clock from '../Clock/Clock';
+import Moment from '../Moment/Moment';
 import CurrentActivity from '../CurrentActivity/CurrentActivity';
 
 export default function Crono() {
   return (
     <SafeAreaView style={{ backgroundColor: 'rgba(235,255,254,1)' }}>
       <ScrollView>
-        <Clock />
         <CurrentActivity />
+        <Moment />
       </ScrollView>
     </SafeAreaView>
   );
