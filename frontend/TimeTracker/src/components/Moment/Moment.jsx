@@ -24,7 +24,8 @@ const styles = StyleSheet.create({
 
 export default function Background() {
   const [secondsLeft, setSecondsLeft] = useState(0);
-  const [timerOn, setTimerOn] = useState(false);
+  const [started, setStarted] = useState(false);
+
   // Runs when timerOn value changes to start or stop timer
   const clockify = () => {
     const hours = Math.floor(secondsLeft / 60 / 60);
@@ -43,6 +44,7 @@ export default function Background() {
     if (secondsLeft === 0) BackgroundTimer.stopBackgroundTimer();
   }, [secondsLeft]);
   const startTimer = () => {
+    setStarted(true);
     BackgroundTimer.runBackgroundTimer(() => {
       setSecondsLeft((secs) => {
         if (secs >= 0) return secs + 1;
@@ -50,13 +52,15 @@ export default function Background() {
       });
     }, 1000);
   };
-  useEffect(() => {
-    if (timerOn) startTimer();
-    else BackgroundTimer.stopBackgroundTimer();
-    return () => {
-      BackgroundTimer.stopBackgroundTimer();
-    };
-  }, [timerOn]);
+  const stopTimer = () => {
+    setStarted(false);
+    BackgroundTimer.stopBackgroundTimer();
+  };
+  const clearTimer = () => {
+    setStarted(false);
+    setSecondsLeft(0);
+  };
+
   function log() {
     console.log(clockify().displayHours, clockify().displayMins, clockify().displaySecs);
   }
@@ -77,8 +81,10 @@ export default function Background() {
         {' '}
 
       </Text>
-      <Button title="Start/Stop" onPress={() => setTimerOn((timerOn) => !timerOn)} />
+      <Button title="Start" disabled={started} onPress={() => startTimer()} />
       <Button title="console.log" onPress={() => log()} />
+      <Button title="Stop" disabled={!started} onPress={() => stopTimer()} />
+      <Button title="Clear" disabled={started} onPress={() => clearTimer()} />
 
     </SafeAreaView>
   );
