@@ -16,8 +16,8 @@ export default function Crono() {
   return (
     <SafeAreaView style={{ backgroundColor: 'rgba(235,255,254,1)' }}>
       <ScrollView>
-        <CurrentActivity />
         <Moment />
+        <CurrentActivity />
       </ScrollView>
     </SafeAreaView>
   );
