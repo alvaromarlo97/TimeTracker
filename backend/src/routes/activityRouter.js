@@ -7,9 +7,9 @@ const activityRouter = express.Router();
 
 activityRouter
   .route('/')
+  .post(activityController.createOne)
   .all(passport.authenticate('jwt', { session: false }))
-  .get(activityController.getAll)
-  .post(activityController.createOne);
+  .get(activityController.getAll);
 
 activityRouter
   .route('/:activity')

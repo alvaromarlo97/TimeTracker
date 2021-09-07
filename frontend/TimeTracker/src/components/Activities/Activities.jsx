@@ -5,6 +5,7 @@
 import React from 'react';
 import {
   SafeAreaView,
+  ScrollView,
   Text,
   TouchableOpacity,
 } from 'react-native';
@@ -28,24 +29,24 @@ export default function Activities({ navigation }) {
       <TouchableOpacity
         style={styles.addActivity}
         onPress={() => navigation.push('CreateAct')}
-
       >
         <Text>Add Activity</Text>
       </TouchableOpacity>
-      {activities.map((element) => (
-        <>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => setActivity(element._id)}
-            key={element._id}
-          >
-            <Text key={element}>
-              {element.activityName}
-            </Text>
-          </TouchableOpacity>
-        </>
-      ))}
-
+      <ScrollView showsVerticalScrollIndicator={false}>
+        {activities.map((element) => (
+          <>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => setActivity(element._id)}
+              key={element._id}
+            >
+              <Text key={element}>
+                {element.activityName}
+              </Text>
+            </TouchableOpacity>
+          </>
+        ))}
+      </ScrollView>
     </SafeAreaView>
   );
 }

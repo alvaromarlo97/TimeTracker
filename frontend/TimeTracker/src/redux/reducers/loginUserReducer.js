@@ -11,10 +11,16 @@ function loginUserReducer(loggedUser = {
         isAuthenticated: true,
       };
       break;
+    case loginActions.LOAD_USER_ACTIVITIES:
+      newLoggedUser = {
+        ...newLoggedUser,
+        user: action.data,
+      };
+      break;
     default:
       break;
   }
-
+  console.log(newLoggedUser);
   return newLoggedUser;
 }
 

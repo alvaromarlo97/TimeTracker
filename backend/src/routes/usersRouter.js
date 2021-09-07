@@ -10,9 +10,9 @@ userRouter
 
 userRouter
   .route('/:userId')
-  .all(passport.authenticate('jwt', { session: false }))
+  .put(usersController.updateOneUserById)
   .get(usersController.getOneUserById)
-  .delete(usersController.deleteOneUserById)
-  .put(usersController.updateOneUserById);
+  .all(passport.authenticate('jwt', { session: false }))
+  .delete(usersController.deleteOneUserById);
 
 module.exports = userRouter;

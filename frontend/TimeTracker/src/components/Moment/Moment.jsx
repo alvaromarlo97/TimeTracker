@@ -145,27 +145,28 @@ export default function Moment({ setisStarted }) {
   };
 
   const activity = useSelector(({ loadActivity }) => loadActivity?.activityTime);
-
+  console.log(activity);
   return (
     <SafeAreaView style={styles.container}>
+
+      <Text style={styles.time}>
+        {' '}
+        {clockify().displayHours}
+        {' '}
+        :
+        {' '}
+        {clockify().displayMins}
+        {' '}
+        :
+        {' '}
+        {clockify().displaySecs}
+        {' '}
+
+      </Text>
+      <Button title="Start" disabled={started} onPress={() => startTimer()} />
+      <Button title="Stop tracking" disabled={!started} onPress={() => stopTimer()} />
       <ScrollView bounces={false} showsVerticalScrollIndicator={false} style={{ backgroundColor: '#000' }}>
 
-        <Text style={styles.time}>
-          {' '}
-          {clockify().displayHours}
-          {' '}
-          :
-          {' '}
-          {clockify().displayMins}
-          {' '}
-          :
-          {' '}
-          {clockify().displaySecs}
-          {' '}
-
-        </Text>
-        <Button title="Start" disabled={started} onPress={() => startTimer()} />
-        <Button title="Stop tracking" disabled={!started} onPress={() => stopTimer()} />
         {activity?.slice(0).reverse().map((element) => (
           <TouchableOpacity style={styles.button} key={element._id}>
             <Text>
