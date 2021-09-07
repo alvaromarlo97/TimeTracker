@@ -5,20 +5,17 @@
 import React from 'react';
 import {
   ScrollView,
-  SafeAreaView,
 
 } from 'react-native';
 // import Clock from '../Clock/Clock';
 import Moment from '../Moment/Moment';
-import CurrentActivity from '../CurrentActivity/CurrentActivity';
+// import CurrentActivity from '../CurrentActivity/CurrentActivity';
 
-export default function Crono() {
+export default function Crono({ setisStarted }) {
   return (
-    <SafeAreaView style={{ backgroundColor: 'rgba(235,255,254,1)' }}>
-      <ScrollView>
-        <Moment />
-        <CurrentActivity />
-      </ScrollView>
-    </SafeAreaView>
+
+    <ScrollView bounces={false} style={{ backgroundColor: '#000' }}>
+      <Moment setisStarted={setisStarted} />
+    </ScrollView>
   );
 }

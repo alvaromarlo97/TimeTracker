@@ -12,7 +12,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { loadActivity } from '../../redux/actions/userCreators';
 import styles from './activities.style';
 
-export default function Activities() {
+export default function Activities({ navigation }) {
   const dispatch = useDispatch();
 
   function setActivity(activityId) {
@@ -20,6 +20,7 @@ export default function Activities() {
       currentActivityId: activityId,
 
     }));
+    navigation.navigate('MyTimer');
   }
   const activities = useSelector(({ loggedUser }) => loggedUser?.user?.activities);
   return (
