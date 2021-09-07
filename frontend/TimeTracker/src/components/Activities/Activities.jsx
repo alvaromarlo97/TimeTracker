@@ -25,6 +25,13 @@ export default function Activities({ navigation }) {
   const activities = useSelector(({ loggedUser }) => loggedUser?.user?.activities);
   return (
     <SafeAreaView style={styles.container}>
+      <TouchableOpacity
+        style={styles.addActivity}
+        onPress={() => navigation.push('CreateAct')}
+
+      >
+        <Text>Add Activity</Text>
+      </TouchableOpacity>
       {activities.map((element) => (
         <>
           <TouchableOpacity

@@ -51,6 +51,16 @@ export default StyleSheet.create({
     shadowRadius: 5,
 
   },
+  addActivity: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#FD682E',
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+
+  },
   button: {
     display: 'flex',
     alignItems: 'center',

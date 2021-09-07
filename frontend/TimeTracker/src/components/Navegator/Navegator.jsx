@@ -34,10 +34,12 @@ export default function Navegator() {
               />
             </>
           ) : (
+
             <Stack.Screen
               name="MainApp"
               component={MainAppNavegator}
             />
+
           )}
 
       </Stack.Navigator>

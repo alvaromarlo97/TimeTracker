@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Activities from '../Activities/Activities';
-import MyTimer from '../Crono/Crono';
+// import Activities from '../Activities/Activities';
+import MyTimer from '../Moment/Moment';
+import ActivityNavegator from './ActivityNavegator';
 
 export default function MainAppNavegator() {
   const [isStarted, setisStarted] = useState(false);
@@ -12,11 +13,11 @@ export default function MainAppNavegator() {
     <Tab.Navigator>
 
       <Tab.Screen
-        name="Activities"
+        name="ActivityNavegator"
         options={{
           headerShown: false,
         }}
-        component={Activities}
+        component={ActivityNavegator}
       />
       <Tab.Screen
         name="MyTimer"

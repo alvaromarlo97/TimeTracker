@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-bind */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-underscore-dangle */
 import React, { useEffect, useState } from 'react';
@@ -7,10 +8,11 @@ import {
   Button,
   SafeAreaView,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import BackgroundTimer from 'react-native-background-timer';
-import { loadCurrentActivity, SubmitTime } from '../../redux/actions/userCreators';
+import { SubmitTime } from '../../redux/actions/userCreators';
 
 const styles = StyleSheet.create({
   container: {
@@ -144,41 +146,38 @@ export default function Moment({ setisStarted }) {
 
   const activity = useSelector(({ loadActivity }) => loadActivity?.activityTime);
 
-  function log() {
-    console.log(clockify().displayHours, clockify().displayMins, clockify().displaySecs);
-  }
   return (
     <SafeAreaView style={styles.container}>
+      <ScrollView bounces={false} showsVerticalScrollIndicator={false} style={{ backgroundColor: '#000' }}>
 
-      <Text style={styles.time}>
-        {' '}
-        {clockify().displayHours}
-        {' '}
-        :
-        {' '}
-        {clockify().displayMins}
-        {' '}
-        :
-        {' '}
-        {clockify().displaySecs}
-        {' '}
+        <Text style={styles.time}>
+          {' '}
+          {clockify().displayHours}
+          {' '}
+          :
+          {' '}
+          {clockify().displayMins}
+          {' '}
+          :
+          {' '}
+          {clockify().displaySecs}
+          {' '}
 
-      </Text>
-      <Button title="Start" disabled={started} onPress={() => startTimer()} />
-      <Button title="console.log" onPress={() => log()} />
-      <Button title="Stop tracking" disabled={!started} onPress={() => stopTimer()} />
-      {activity?.slice(0).reverse().map((element) => (
-        <TouchableOpacity style={styles.button} key={element._id}>
-          <Text>
-            {element.hours}
-            :
-            {element.minutes}
-            :
-            {element.seconds}
-          </Text>
-        </TouchableOpacity>
-      ))}
-
+        </Text>
+        <Button title="Start" disabled={started} onPress={() => startTimer()} />
+        <Button title="Stop tracking" disabled={!started} onPress={() => stopTimer()} />
+        {activity?.slice(0).reverse().map((element) => (
+          <TouchableOpacity style={styles.button} key={element._id}>
+            <Text>
+              {element.hours}
+              :
+              {element.minutes}
+              :
+              {element.seconds}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </ScrollView>
     </SafeAreaView>
   );
 }
