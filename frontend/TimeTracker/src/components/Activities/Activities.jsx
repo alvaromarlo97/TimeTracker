@@ -9,17 +9,17 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadActivity } from '../../redux/actions/userCreators';
+import { loadCurrentActivity } from '../../redux/actions/userCreators';
 import styles from './activities.style';
 
 export default function Activities({ navigation }) {
   const dispatch = useDispatch();
 
   function setActivity(activityId) {
-    dispatch(loadActivity({
+    dispatch(loadCurrentActivity({
       currentActivityId: activityId,
-
     }));
+
     navigation.navigate('MyTimer');
   }
   const activities = useSelector(({ loggedUser }) => loggedUser?.user?.activities);

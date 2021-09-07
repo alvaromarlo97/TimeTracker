@@ -8,8 +8,9 @@ import {
   SafeAreaView,
   TouchableOpacity,
 } from 'react-native';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import BackgroundTimer from 'react-native-background-timer';
+import { loadCurrentActivity, SubmitTime } from '../../redux/actions/userCreators';
 
 const styles = StyleSheet.create({
   container: {
@@ -97,10 +98,10 @@ const styles = StyleSheet.create({
 });
 
 export default function Moment({ setisStarted }) {
+  const dispatch = useDispatch();
   const [secondsLeft, setSecondsLeft] = useState(0);
   const [started, setStarted] = useState(false);
-  console.log(setisStarted);
-
+  const activityId = useSelector(({ loadActivity }) => loadActivity._id);
   // Runs when timerOn value changes to start or stop timer
   const clockify = () => {
     const hours = Math.floor(secondsLeft / 60 / 60);
@@ -129,14 +130,18 @@ export default function Moment({ setisStarted }) {
     }, 1000);
   };
   const stopTimer = () => {
+    dispatch(SubmitTime(activityId, {
+      hours: clockify().displayHours,
+      minutes: clockify().displayMins,
+      seconds: clockify().displaySecs,
+    }));
     setisStarted(false);
     setStarted(false);
+    setSecondsLeft(0);
+
     BackgroundTimer.stopBackgroundTimer();
   };
-  const clearTimer = () => {
-    setStarted(false);
-    setSecondsLeft(0);
-  };
+
   const activity = useSelector(({ loadActivity }) => loadActivity?.activityTime);
 
   function log() {
@@ -162,8 +167,7 @@ export default function Moment({ setisStarted }) {
       <Button title="Start" disabled={started} onPress={() => startTimer()} />
       <Button title="console.log" onPress={() => log()} />
       <Button title="Stop tracking" disabled={!started} onPress={() => stopTimer()} />
-      <Button title="Clear" disabled={started} onPress={() => clearTimer()} />
-      {activity?.map((element) => (
+      {activity?.slice(0).reverse().map((element) => (
         <TouchableOpacity style={styles.button} key={element._id}>
           <Text>
             {element.hours}

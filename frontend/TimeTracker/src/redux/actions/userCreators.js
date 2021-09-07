@@ -30,7 +30,7 @@ export function RegisterUser(body) {
     }
   };
 }
-export function loadActivity(activityId) {
+export function loadCurrentActivity(activityId) {
   return async (dispatch) => {
     try {
       const { data } = await axios.get(`${API_URL}/api/activity/${activityId.currentActivityId}`);
@@ -56,6 +56,27 @@ export function LoadUserInfo(access_token, userId) {
       dispatch({
         type: userTypes.LOAD_USER,
         datos,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+export function SubmitTime(activityId, body) {
+  return async (dispatch) => {
+    try {
+      console.log('oo');
+      console.log(body);
+      const { data } = await axios.put(`${API_URL}/api/activity/${activityId}`,
+        {
+          type: 'timeUpdate',
+          data:
+            body,
+
+        });
+      dispatch({
+        type: userTypes.LOAD_ACTIVITY,
+        data,
       });
     } catch (error) {
       console.log(error);
