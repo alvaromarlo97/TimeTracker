@@ -7,15 +7,15 @@ const activityRouter = express.Router();
 
 activityRouter
   .route('/')
+  .post(activityController.createOne)
   .all(passport.authenticate('jwt', { session: false }))
-  .get(activityController.getAll)
-  .post(activityController.createOne);
+  .get(activityController.getAll);
 
 activityRouter
   .route('/:activity')
-  .all(passport.authenticate('jwt', { session: false }))
   .get(activityController.getOneById)
   .put(activityController.putUpdate)
+  .all(passport.authenticate('jwt', { session: false }))
   .delete(activityController.deleteActivity);
 
 module.exports = activityRouter;

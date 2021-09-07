@@ -11,8 +11,7 @@ passport.use(
     },
     async (email, password, done) => {
       try {
-        const profile = await Profile.create({ email, password });
-        return done(null, profile);
+        return done(null, true);
       } catch (error) {
         return done(error);
       }
@@ -28,7 +27,8 @@ passport.use(
     },
     async (email, password, done) => {
       try {
-        const profile = await Profile.findOne({ email });
+        const profile = await Profile.findOne({ email })
+          .populate('activities');
         if (!profile) {
           return done(null, false, { message: 'User not found' });
         }

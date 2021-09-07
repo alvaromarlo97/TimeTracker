@@ -1,67 +1,56 @@
-import React from 'react';
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable global-require */
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-no-bind */
+import React, { useState } from 'react';
 import {
-  StyleSheet,
   View,
   TextInput,
   TouchableOpacity,
   Text,
+  Image,
 } from 'react-native';
+import { useDispatch } from 'react-redux';
+import styles from './login.style';
+import logInUser from '../../redux/actions/userCreators';
+// import store from '../../redux/store';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'rgba(235,255,254,1)',
-    borderRadius: 25,
-  },
-  email: {
-    fontFamily: 'arial',
-    color: '#121212',
-    height: 69,
-    width: 263,
-    backgroundColor: 'rgba(196,255,252,1)',
-    textAlign: 'center',
-    borderRadius: 25,
-    marginTop: 315,
-    marginLeft: 47,
-  },
-  email1: {
-    fontFamily: 'arial',
-    color: '#121212',
-    height: 69,
-    width: 263,
-    backgroundColor: 'rgba(196,255,252,1)',
-    textAlign: 'center',
-    borderRadius: 25,
-    marginTop: 22,
-    marginLeft: 47,
-  },
-  button: {
-    width: 175,
-    height: 69,
-    backgroundColor: 'rgba(30,191,178,1)',
-    borderRadius: 25,
-    marginTop: 86,
-    marginLeft: 91,
-  },
-  login: {
-    fontFamily: 'arial',
-    color: '#121212',
-    textAlign: 'center',
-    fontSize: 46,
-    marginTop: 8,
-    marginLeft: 31,
-  },
-});
-function Login() {
+export default function Login({ navigation }) {
+  const dispatch = useDispatch();
+  const [emailInputValue, setEmailInputValue] = useState('');
+  const [passwordInputValue, setPasswordInputValue] = useState('');
+
+  function handleLogin() {
+    dispatch(logInUser({
+      email: emailInputValue,
+      password: passwordInputValue,
+    }));
+  }
+
   return (
     <View style={styles.container}>
-      <TextInput placeholder="email" style={styles.email} />
-      <TextInput placeholder="password" style={styles.email1} />
-      <TouchableOpacity style={styles.button}>
+      <Image source={require('../../public/image/hourglass.png')} style={styles.image} />
+      <TextInput
+        placeholder="email"
+        autoCorrect={false}
+        autoCapitalize="words"
+        style={styles.email}
+        onChangeText={(text) => setEmailInputValue(text)}
+        value={emailInputValue}
+      />
+      <TextInput
+        placeholder="password"
+        secureTextEntry
+        style={styles.email1}
+        onChangeText={(text) => setPasswordInputValue(text)}
+        value={passwordInputValue}
+      />
+      <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.login}>Login</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button1} onPress={() => navigation.pop()}>
+        <Text style={styles.login}>Register</Text>
       </TouchableOpacity>
     </View>
   );
 }
-
-export default Login;

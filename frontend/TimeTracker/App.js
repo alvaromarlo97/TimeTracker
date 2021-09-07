@@ -9,14 +9,15 @@
  */
 
 import React from 'react';
+import { Provider } from 'react-redux';
+import Navegator from './src/components/Navegator/Navegator';
+import configureStore from './src/redux/store';
+// import Background from './src/components/Moment/Moment';
 
-// import Login from './src/components/Login/Login';
-import MyTimer from './src/components/Main/Main';
-
-const App = () => (
-  <>
-    <MyTimer />
-  </>
-);
-
-export default App;
+export default function App() {
+  return (
+    <Provider store={configureStore()}>
+      <Navegator />
+    </Provider>
+  );
+}
