@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // import Activities from '../Activities/Activities';
 import MyTimer from '../Moment/Moment';
 import ActivityNavegator from './ActivityNavegator';
+import Stats from '../Stats/Stats';
 
 export default function MainAppNavegator() {
   const [isStarted, setisStarted] = useState(false);
@@ -29,6 +30,13 @@ export default function MainAppNavegator() {
       >
         {() => <MyTimer setisStarted={setisStarted} />}
       </Tab.Screen>
+      <Tab.Screen
+        name="Stats"
+        options={{
+          headerShown: false,
+        }}
+        component={Stats}
+      />
     </Tab.Navigator>
 
   );
