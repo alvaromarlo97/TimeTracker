@@ -17,7 +17,7 @@ import styles from './CreateActivity.style';
 
 export default function CreateActivity({ navigation }) {
   const dispatch = useDispatch();
-  const [color, setcolor] = useState('blue');
+  const [color, setcolor] = useState('#EE6055');
   const [activityName, setActivityName] = useState('');
   const userId = useSelector(({ loggedUser }) => loggedUser?.user?._id);
   function submitActivity(name, co) {
@@ -46,10 +46,16 @@ export default function CreateActivity({ navigation }) {
       <TouchableOpacity style={styles.button} onPress={() => submitActivity(activityName, color)}>
         <Text>Save</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.red} onPress={() => setcolor('red')} />
-      <TouchableOpacity style={styles.green} onPress={() => setcolor('green')} />
-      <TouchableOpacity style={styles.black} onPress={() => setcolor('black')} />
-
+      <View style={styles.colorContainer}>
+        <TouchableOpacity style={styles.maya} onPress={() => setcolor('#7CC6FE')} />
+        <TouchableOpacity style={styles.blue} onPress={() => setcolor('#717EC3')} />
+        <TouchableOpacity style={styles.green} onPress={() => setcolor('#AAF683')} />
+        <TouchableOpacity style={styles.aquamarine} onPress={() => setcolor('#60D394')} />
+        <TouchableOpacity style={styles.vivid} onPress={() => setcolor('#FF9B85')} />
+        <TouchableOpacity style={styles.yellow} onPress={() => setcolor('#FFD97D')} />
+        <TouchableOpacity style={styles.rose} onPress={() => setcolor('#F9E0D9')} />
+        <TouchableOpacity style={styles.claret} onPress={() => setcolor('#7D1538')} />
+      </View>
     </ScrollView>
   );
 }

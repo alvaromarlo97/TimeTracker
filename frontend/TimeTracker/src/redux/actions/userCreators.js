@@ -124,14 +124,17 @@ export function deleteActivity(userId, body) {
       console.log('ii', body);
       console.log('pp', userId);
 
-      // await axios.delete(`${API_URL}/api/user/${userId}`, body);
-      await fetch(`${API_URL}/api/user/${userId}`, {
-        body: JSON.stringify(body),
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      await axios.delete(`${API_URL}/api/user/${userId}`,
+        {
+          data: body,
+        });
+      // await fetch(`${API_URL}/api/user/${userId}`, {
+      //   body: JSON.stringify(body),
+      //   method: 'DELETE',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      // });
       dispatch(UserActivities(userId));
     } catch (error) {
       console.log(error);
