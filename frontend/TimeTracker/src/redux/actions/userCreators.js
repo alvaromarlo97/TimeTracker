@@ -118,3 +118,23 @@ export function CreateNewActivity(userId, body) {
     }
   };
 }
+export function deleteActivity(userId, body) {
+  return async (dispatch) => {
+    try {
+      console.log('ii', body);
+      console.log('pp', userId);
+
+      // await axios.delete(`${API_URL}/api/user/${userId}`, body);
+      await fetch(`${API_URL}/api/user/${userId}`, {
+        body: JSON.stringify(body),
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      dispatch(UserActivities(userId));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}

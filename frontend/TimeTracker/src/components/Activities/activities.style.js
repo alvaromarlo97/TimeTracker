@@ -61,8 +61,15 @@ export default StyleSheet.create({
     borderRadius: 50,
 
   },
+  x: {
+    width: 50,
+    height: 50,
+    backgroundColor: 'red',
+    borderRadius: 50,
+  },
   button: {
     display: 'flex',
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     width: 350,

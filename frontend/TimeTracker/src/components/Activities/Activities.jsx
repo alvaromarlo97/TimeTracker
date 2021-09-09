@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadCurrentActivity } from '../../redux/actions/userCreators';
+import { loadCurrentActivity, deleteActivity } from '../../redux/actions/userCreators';
 import styles from './activities.style';
 
 export default function Activities({ navigation }) {
@@ -23,7 +23,13 @@ export default function Activities({ navigation }) {
 
     navigation.navigate('MyTimer');
   }
+  const currentUserId = useSelector(({ loggedUser }) => loggedUser?.user?._id);
   const activities = useSelector(({ loggedUser }) => loggedUser?.user?.activities);
+  function removeActivity(activityId) {
+    dispatch(deleteActivity(currentUserId, {
+      activities: [activityId],
+    }));
+  }
   return (
     <SafeAreaView style={styles.container}>
       <TouchableOpacity
@@ -43,6 +49,10 @@ export default function Activities({ navigation }) {
               <Text key={element}>
                 {element.activityName}
               </Text>
+              <TouchableOpacity
+                style={styles.x}
+                onPress={() => removeActivity(element._id)}
+              />
             </TouchableOpacity>
           </>
         ))}
