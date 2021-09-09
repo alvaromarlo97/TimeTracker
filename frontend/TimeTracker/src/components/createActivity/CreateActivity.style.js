@@ -31,58 +31,58 @@ export default StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
-  aquamarine: {
+  celeste: {
     margin: 20,
-    backgroundColor: '#60D394',
+    backgroundColor: '#4CD964',
     height: 50,
     width: 50,
     borderRadius: 50,
   },
   green: {
     margin: 20,
-    backgroundColor: '#AAF683',
+    backgroundColor: '#FFCC00',
     height: 50,
     width: 50,
     borderRadius: 50,
   },
-  yellow: {
+  lavander: {
     margin: 20,
-    backgroundColor: '#FFD97D',
+    backgroundColor: '#007AFF',
     height: 50,
     width: 50,
     borderRadius: 50,
   },
-  blue: {
+  ny: {
     margin: 20,
-    backgroundColor: '#717EC3',
+    backgroundColor: '#FF9500',
     height: 50,
     width: 50,
     borderRadius: 50,
   },
-  claret: {
+  pink: {
     margin: 20,
-    backgroundColor: '#7D1538',
+    backgroundColor: '#FF2D55',
     height: 50,
     width: 50,
     borderRadius: 50,
   },
-  rose: {
+  candy: {
     margin: 20,
-    backgroundColor: '#F9E0D9',
+    backgroundColor: '#5856D6',
     height: 50,
     width: 50,
     borderRadius: 50,
   },
-  maya: {
+  lemon: {
     margin: 20,
-    backgroundColor: '#7CC6FE',
+    backgroundColor: '#FF3B30',
     height: 50,
     width: 50,
     borderRadius: 50,
   },
-  vivid: {
+  crayola: {
     margin: 20,
-    backgroundColor: '#FF9B85',
+    backgroundColor: '#5AC8FA',
     height: 50,
     width: 50,
     borderRadius: 50,

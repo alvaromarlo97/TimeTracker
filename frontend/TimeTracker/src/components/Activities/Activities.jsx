@@ -6,6 +6,7 @@ import React from 'react';
 import {
   SafeAreaView,
   ScrollView,
+  View,
   Text,
   TouchableOpacity,
 } from 'react-native';
@@ -32,13 +33,8 @@ export default function Activities({ navigation }) {
   }
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableOpacity
-        style={styles.addActivity}
-        onPress={() => navigation.push('CreateAct')}
-      >
-        <Text>Add Activity</Text>
-      </TouchableOpacity>
-      <ScrollView showsVerticalScrollIndicator={false}>
+
+      <ScrollView style={styles.scroll} showsVerticalScrollIndicator={false}>
         {activities.map((element) => (
           <>
             <TouchableOpacity
@@ -46,6 +42,7 @@ export default function Activities({ navigation }) {
               onPress={() => setActivity(element._id)}
               key={element._id}
             >
+              <View style={[styles.x, { backgroundColor: element.color }]} />
               <Text key={element}>
                 {element.activityName}
               </Text>
@@ -57,6 +54,12 @@ export default function Activities({ navigation }) {
           </>
         ))}
       </ScrollView>
+      <TouchableOpacity
+        style={styles.addActivity}
+        onPress={() => navigation.push('CreateAct')}
+      >
+        <Text>Add Activity</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }

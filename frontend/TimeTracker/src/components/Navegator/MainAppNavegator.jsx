@@ -11,7 +11,17 @@ export default function MainAppNavegator() {
   const Tab = createBottomTabNavigator();
   return (
 
-    <Tab.Navigator>
+    <Tab.Navigator tabBarOptions={{
+      activeTintColor: '#FD9F32',
+      labelStyle: {
+        fontSize: 12,
+      },
+
+      style: {
+        backgroundColor: 'blue',
+      },
+    }}
+    >
 
       <Tab.Screen
         name="ActivityNavegator"

@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: '#B9D8EA',
   },
   time: {
     fontSize: 30,
@@ -78,8 +78,7 @@ const styles = StyleSheet.create({
     height: 69,
     backgroundColor: 'rgba(30,191,178,1)',
     borderRadius: 25,
-    marginTop: 25,
-    marginBottom: 25,
+    margin: 15,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -165,7 +164,7 @@ export default function Moment({ setisStarted }) {
       </Text>
       <Button title="Start" disabled={started} onPress={() => startTimer()} />
       <Button title="Stop tracking" disabled={!started} onPress={() => stopTimer()} />
-      <ScrollView bounces={false} showsVerticalScrollIndicator={false} style={{ backgroundColor: '#000' }}>
+      <ScrollView bounces={false} showsVerticalScrollIndicator={false} style={{ backgroundColor: '#B9D8EA' }}>
 
         {activity?.slice(0).reverse().map((element) => (
           <TouchableOpacity style={styles.button} key={element._id}>

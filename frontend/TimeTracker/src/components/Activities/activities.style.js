@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'rgba(235,255,254,1)',
+    backgroundColor: '#ECFFFE',
     borderRadius: 25,
     display: 'flex',
     alignItems: 'center',
@@ -12,6 +12,9 @@ export default StyleSheet.create({
     marginTop: 100,
     width: 200,
     height: 200,
+  },
+  scroll: {
+    marginTop: 10,
   },
   email: {
     fontFamily: 'arial',
@@ -55,11 +58,11 @@ export default StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#FD682E',
+    backgroundColor: '#FD9F32',
     width: 100,
     height: 100,
     borderRadius: 50,
-
+    marginTop: 50,
   },
   x: {
     width: 50,
@@ -69,21 +72,14 @@ export default StyleSheet.create({
   },
   button: {
     display: 'flex',
+    margin: 10,
     flexDirection: 'row',
+    justifyContent: 'space-around',
     alignItems: 'center',
-    justifyContent: 'center',
     width: 350,
     height: 69,
-    backgroundColor: 'rgba(30,191,178,1)',
     borderRadius: 25,
-    marginTop: 25,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 8,
-    },
-    shadowOpacity: 0.44,
-    shadowRadius: 5,
+    backgroundColor: '#B9D8EA',
 
   },
   login: {

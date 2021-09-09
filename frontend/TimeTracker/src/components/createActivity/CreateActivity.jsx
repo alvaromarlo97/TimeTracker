@@ -17,7 +17,7 @@ import styles from './CreateActivity.style';
 
 export default function CreateActivity({ navigation }) {
   const dispatch = useDispatch();
-  const [color, setcolor] = useState('#EE6055');
+  const [color, setcolor] = useState('#FF3B30');
   const [activityName, setActivityName] = useState('');
   const userId = useSelector(({ loggedUser }) => loggedUser?.user?._id);
   function submitActivity(name, co) {
@@ -47,14 +47,14 @@ export default function CreateActivity({ navigation }) {
         <Text>Save</Text>
       </TouchableOpacity>
       <View style={styles.colorContainer}>
-        <TouchableOpacity style={styles.maya} onPress={() => setcolor('#7CC6FE')} />
-        <TouchableOpacity style={styles.blue} onPress={() => setcolor('#717EC3')} />
-        <TouchableOpacity style={styles.green} onPress={() => setcolor('#AAF683')} />
-        <TouchableOpacity style={styles.aquamarine} onPress={() => setcolor('#60D394')} />
-        <TouchableOpacity style={styles.vivid} onPress={() => setcolor('#FF9B85')} />
-        <TouchableOpacity style={styles.yellow} onPress={() => setcolor('#FFD97D')} />
-        <TouchableOpacity style={styles.rose} onPress={() => setcolor('#F9E0D9')} />
-        <TouchableOpacity style={styles.claret} onPress={() => setcolor('#7D1538')} />
+        <TouchableOpacity style={styles.lemon} onPress={() => setcolor('#FF3B30')} />
+        <TouchableOpacity style={styles.ny} onPress={() => setcolor('#FF9500')} />
+        <TouchableOpacity style={styles.green} onPress={() => setcolor('#FFCC00')} />
+        <TouchableOpacity style={styles.celeste} onPress={() => setcolor('#4CD964')} />
+        <TouchableOpacity style={styles.crayola} onPress={() => setcolor('#5AC8FA')} />
+        <TouchableOpacity style={styles.lavander} onPress={() => setcolor('#007AFF')} />
+        <TouchableOpacity style={styles.candy} onPress={() => setcolor('#5856D6')} />
+        <TouchableOpacity style={styles.pink} onPress={() => setcolor('#FF2D55')} />
       </View>
     </ScrollView>
   );
