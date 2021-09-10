@@ -38,18 +38,23 @@ export default function Activities({ navigation }) {
         {activities.map((element) => (
           <>
             <TouchableOpacity
-              style={styles.button}
+              style={[styles.button, { backgroundColor: element.color }]}
               onPress={() => setActivity(element._id)}
               key={element._id}
             >
-              <View style={[styles.x, { backgroundColor: element.color }]} />
-              <Text key={element}>
-                {element.activityName}
-              </Text>
-              <TouchableOpacity
-                style={styles.x}
-                onPress={() => removeActivity(element._id)}
-              />
+              <View style={styles.info}>
+                <View style={styles.co} />
+                <Text key={element} style={styles.text}>
+                  {element.activityName}
+                </Text>
+                <TouchableOpacity
+                  style={styles.x}
+                  onPress={() => removeActivity(element._id)}
+                >
+                  <Text style={styles.xText}>x</Text>
+                </TouchableOpacity>
+              </View>
+
             </TouchableOpacity>
           </>
         ))}
@@ -58,7 +63,10 @@ export default function Activities({ navigation }) {
         style={styles.addActivity}
         onPress={() => navigation.push('CreateAct')}
       >
-        <Text>Add Activity</Text>
+        <Text style={styles.addText}>
+          +
+
+        </Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
