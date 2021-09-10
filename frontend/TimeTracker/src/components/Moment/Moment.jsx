@@ -3,100 +3,16 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useEffect, useState } from 'react';
 import {
-  StyleSheet,
   Text,
-  Button,
   SafeAreaView,
   TouchableOpacity,
   ScrollView,
+  View,
 } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import BackgroundTimer from 'react-native-background-timer';
 import { SubmitTime } from '../../redux/actions/userCreators';
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-    backgroundColor: '#B9D8EA',
-  },
-  time: {
-    fontSize: 30,
-    color: '#fff',
-    marginBottom: 30,
-    textAlign: 'center',
-  },
-  image: {
-    marginTop: 100,
-    width: 200,
-    height: 200,
-  },
-  email: {
-    fontFamily: 'arial',
-    fontSize: 25,
-    color: '#121212',
-    height: 69,
-    width: 263,
-    backgroundColor: 'rgba(196,255,252,1)',
-    textAlign: 'center',
-    borderRadius: 25,
-    marginTop: 100,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 8,
-    },
-    shadowOpacity: 0.44,
-    shadowRadius: 5,
-
-  },
-  email1: {
-    fontFamily: 'arial',
-    fontSize: 25,
-    color: '#121212',
-    height: 69,
-    width: 263,
-    backgroundColor: 'rgba(196,255,252,1)',
-    textAlign: 'center',
-    borderRadius: 25,
-    marginTop: 15,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 8,
-    },
-    shadowOpacity: 0.44,
-    shadowRadius: 5,
-
-  },
-  button: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 300,
-    height: 69,
-    backgroundColor: 'rgba(30,191,178,1)',
-    borderRadius: 25,
-    margin: 15,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 8,
-    },
-    shadowOpacity: 0.44,
-    shadowRadius: 5,
-
-  },
-  login: {
-    fontFamily: 'arial',
-    color: '#121212',
-    textAlign: 'center',
-    alignItems: 'center',
-    fontSize: 30,
-    marginTop: 8,
-  },
-});
+import styles from './moment.style';
 
 export default function Moment({ setisStarted }) {
   const dispatch = useDispatch();
@@ -144,6 +60,8 @@ export default function Moment({ setisStarted }) {
   };
 
   const activity = useSelector(({ loadActivity }) => loadActivity?.activityTime);
+  const activitycolor = useSelector(({ loadActivity }) => loadActivity?.color);
+
   console.log(activity);
   return (
     <SafeAreaView style={styles.container}>
@@ -162,13 +80,26 @@ export default function Moment({ setisStarted }) {
         {' '}
 
       </Text>
-      <Button title="Start" disabled={started} onPress={() => startTimer()} />
-      <Button title="Stop tracking" disabled={!started} onPress={() => stopTimer()} />
-      <ScrollView bounces={false} showsVerticalScrollIndicator={false} style={{ backgroundColor: '#B9D8EA' }}>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.start} disabled={started} onPress={() => startTimer()}>
+          <Text style={styles.startText}>
+            ▶
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.start} disabled={!started} onPress={() => stopTimer()}>
+          <Text style={styles.startText}>
+            ■
+          </Text>
+        </TouchableOpacity>
+      </View>
+      <ScrollView bounces={false} showsVerticalScrollIndicator={false} style={{ backgroundColor: '#262155' }}>
 
         {activity?.slice(0).reverse().map((element) => (
-          <TouchableOpacity style={styles.button} key={element._id}>
-            <Text>
+          <TouchableOpacity
+            style={[styles.button, { backgroundColor: activitycolor }]}
+            key={element._id}
+          >
+            <Text style={styles.buttonTime}>
               {element.hours}
               :
               {element.minutes}

@@ -16,7 +16,7 @@ export default StyleSheet.create({
   scroll: {
     marginTop: 5,
     width: '100%',
-    marginBottom: -60,
+    marginBottom: -50,
     borderTopLeftRadius: 50,
     borderBottomLeftRadius: 10,
 
