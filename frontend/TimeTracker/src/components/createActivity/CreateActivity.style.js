@@ -1,16 +1,34 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
+  container: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#262155',
+    minHeight: '100%',
+  },
   textContainer: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#ECFFFE',
+    backgroundColor: '#262155',
     borderBottomLeftRadius: 25,
     borderBottomRightRadius: 25,
     paddingLeft: 50,
-
+    shadowOffset: {
+      width: 0,
+      height: 10,
+    },
+    shadowOpacity: 0.51,
+    shadowRadius: 13.16,
+    elevation: 20,
+  },
+  saveText: {
+    fontSize: 25,
+    color: '#FCFFFF',
+    fontFamily: 'Avenir-Medium',
   },
   selectedColor: {
     marginRight: 50,
@@ -20,11 +38,14 @@ export default StyleSheet.create({
   },
   activity: {
     flex: 1,
-    fontSize: 25,
     height: 200,
     width: '100%',
     display: 'flex',
     alignItems: 'center',
+    fontSize: 25,
+    color: '#FCFFFF',
+    fontFamily: 'Avenir-Medium',
+
   },
   colorContainer: {
     flex: 1,
@@ -93,8 +114,9 @@ export default StyleSheet.create({
     justifyContent: 'center',
     width: 175,
     height: 69,
-    backgroundColor: 'rgba(30,191,178,1)',
-    borderRadius: 25,
+    backgroundColor: '#FD9F32',
+    borderRadius: 10,
     shadowColor: '#000',
+    margin: 30,
   },
 });

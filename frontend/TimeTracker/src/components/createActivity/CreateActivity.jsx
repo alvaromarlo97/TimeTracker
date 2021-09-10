@@ -4,7 +4,7 @@
 /* eslint-disable react/jsx-no-bind */
 import React, { useState } from 'react';
 import {
-  ScrollView,
+
   TextInput,
   TouchableOpacity,
   View,
@@ -30,11 +30,12 @@ export default function CreateActivity({ navigation }) {
     }
   }
   return (
-    <ScrollView>
-      <View style={styles.textContainer}>
+    <View style={styles.container}>
+      <View style={[styles.textContainer, { shadowColor: color }]}>
         <TouchableOpacity style={[styles.selectedColor, { backgroundColor: color }]} />
         <TextInput
           placeholder="Activity Name"
+          placeholderTextColor="#FCFFFF"
           autoCorrect={false}
           autoCapitalize="words"
           style={styles.activity}
@@ -44,7 +45,7 @@ export default function CreateActivity({ navigation }) {
         />
       </View>
       <TouchableOpacity style={styles.button} onPress={() => submitActivity(activityName, color)}>
-        <Text>Save</Text>
+        <Text style={styles.saveText}>Add</Text>
       </TouchableOpacity>
       <View style={styles.colorContainer}>
         <TouchableOpacity style={styles.lemon} onPress={() => setcolor('#FF3B30')} />
@@ -56,6 +57,6 @@ export default function CreateActivity({ navigation }) {
         <TouchableOpacity style={styles.candy} onPress={() => setcolor('#5856D6')} />
         <TouchableOpacity style={styles.pink} onPress={() => setcolor('#FF2D55')} />
       </View>
-    </ScrollView>
+    </View>
   );
 }

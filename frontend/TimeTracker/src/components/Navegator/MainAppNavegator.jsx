@@ -1,9 +1,12 @@
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/jsx-no-bind */
 import React, { useState } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // import Activities from '../Activities/Activities';
 import MyTimer from '../Moment/Moment';
 import ActivityNavegator from './ActivityNavegator';
 import Stats from '../Stats/Stats';
+import CustomTabBar from './CustomTabBar/CustomTabBar';
 
 export default function MainAppNavegator() {
   const [isStarted, setisStarted] = useState(false);
@@ -11,17 +14,7 @@ export default function MainAppNavegator() {
   const Tab = createBottomTabNavigator();
   return (
 
-    <Tab.Navigator tabBarOptions={{
-      activeTintColor: '#FD9F32',
-      labelStyle: {
-        fontSize: 12,
-      },
-
-      style: {
-        backgroundColor: 'blue',
-      },
-    }}
-    >
+    <Tab.Navigator tabBar={(props) => <CustomTabBar {...props} isStarted={isStarted} />}>
 
       <Tab.Screen
         name="ActivityNavegator"

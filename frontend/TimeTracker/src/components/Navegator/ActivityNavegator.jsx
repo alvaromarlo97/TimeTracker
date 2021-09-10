@@ -21,6 +21,7 @@ export default function ActivityNavegator() {
       <Stack.Screen
         name="CreateAct"
         options={{
+
           headerShown: false,
         }}
         component={CreateActivity}
