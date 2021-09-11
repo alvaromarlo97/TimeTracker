@@ -78,7 +78,7 @@ export function LoadUserInfo(access_token, userId) {
     }
   };
 }
-export function SubmitTime(activityId, body, newTotalTime) {
+export function SubmitTime(activityId, body, newTotalTime, userId) {
   return async (dispatch) => {
     try {
       console.log('oo');
@@ -99,6 +99,7 @@ export function SubmitTime(activityId, body, newTotalTime) {
         type: userTypes.LOAD_ACTIVITY,
         data,
       });
+      dispatch(UserActivities(userId));
     } catch (error) {
       console.log(error);
     }

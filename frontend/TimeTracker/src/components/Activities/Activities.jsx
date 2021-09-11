@@ -33,7 +33,7 @@ export default function Activities({ navigation }) {
   }
   return (
     <SafeAreaView style={styles.container}>
-
+      <Text style={styles.MyActivities}>MyActivities</Text>
       <ScrollView style={styles.scroll} showsVerticalScrollIndicator={false}>
         {activities.map((element) => (
           <>
@@ -43,9 +43,13 @@ export default function Activities({ navigation }) {
               key={element._id}
             >
               <View style={styles.info}>
-                <View style={styles.co} />
                 <Text key={element} style={styles.text}>
                   {element.activityName}
+                </Text>
+                <Text style={styles.totalTime}>
+
+                  {element.totalTime}
+
                 </Text>
                 <TouchableOpacity
                   style={styles.x}

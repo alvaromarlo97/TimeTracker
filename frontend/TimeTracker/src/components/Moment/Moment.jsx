@@ -1,3 +1,5 @@
+/* eslint-disable radix */
+/* eslint-disable max-len */
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-underscore-dangle */
@@ -19,6 +21,8 @@ export default function Moment({ setisStarted }) {
   const [secondsLeft, setSecondsLeft] = useState(0);
   const [started, setStarted] = useState(false);
   const activityId = useSelector(({ loadActivity }) => loadActivity._id);
+  const userId = useSelector(({ loggedUser }) => loggedUser?.user?._id);
+
   // Runs when timerOn value changes to start or stop timer
   const clockify = () => {
     const hours = Math.floor(secondsLeft / 60 / 60);
@@ -66,15 +70,13 @@ export default function Moment({ setisStarted }) {
       hours: clockify().displayHours,
       minutes: clockify().displayMins,
       seconds: clockify().displaySecs,
-    }, timeCalculator()));
+    }, timeCalculator(), userId));
     setisStarted(false);
     setStarted(false);
     setSecondsLeft(0);
 
     BackgroundTimer.stopBackgroundTimer();
   };
-  const backTime = useSelector(({ loadActivity }) => loadActivity?.totalTime);
-  console.log(backTime);
 
   return (
     <SafeAreaView style={styles.container}>

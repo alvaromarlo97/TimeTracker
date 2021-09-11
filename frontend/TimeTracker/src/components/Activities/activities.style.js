@@ -81,9 +81,15 @@ export default StyleSheet.create({
   },
   text: {
     fontSize: 40,
+    marginLeft: 20,
     color: '#FCFFFF',
     fontFamily: 'Avenir-Medium',
     width: 200,
+  },
+  totalTime: {
+    fontSize: 20,
+    color: '#FCFFFF',
+    fontFamily: 'Avenir-Medium',
   },
   info: {
     display: 'flex',
@@ -92,6 +98,15 @@ export default StyleSheet.create({
     alignItems: 'flex-start',
     width: '100%',
     marginTop: 25,
+  },
+  MyActivities: {
+    marginTop: 30,
+    fontSize: 50,
+    marginLeft: 20,
+    color: '#FCFFFF',
+    fontFamily: 'Avenir-Medium',
+    width: '100%',
+
   },
 
 });
