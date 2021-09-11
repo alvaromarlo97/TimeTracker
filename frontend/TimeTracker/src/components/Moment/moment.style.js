@@ -1,13 +1,38 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-
   container: {
+    alignItems: 'center',
+    justifyContent: 'center',
     flex: 1,
     backgroundColor: '#262155',
-    borderRadius: 25,
+  },
+  buttonContainer: {
     display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    height: 150,
+    width: 300,
+  },
+  startText: {
+    color: '#262155',
+    textAlign: 'center',
+    fontSize: 80,
+  },
+  start: {
+    display: 'flex',
+    justifyContent: 'center',
     alignItems: 'center',
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    backgroundColor: '#FD9F32',
+  },
+  time: {
+    fontSize: 50,
+    color: '#fff',
+    marginBottom: 30,
+    textAlign: 'center',
   },
   image: {
     marginTop: 100,
@@ -15,12 +40,12 @@ export default StyleSheet.create({
     height: 200,
   },
   email: {
-    fontFamily: 'Avenir-Medium',
+    fontFamily: 'arial',
     fontSize: 25,
-    color: 'white',
+    color: '#121212',
     height: 69,
     width: 263,
-    backgroundColor: '#61DFE7',
+    backgroundColor: 'rgba(196,255,252,1)',
     textAlign: 'center',
     borderRadius: 25,
     marginTop: 100,
@@ -34,12 +59,12 @@ export default StyleSheet.create({
 
   },
   email1: {
-    fontFamily: 'Avenir-Medium',
+    fontFamily: 'arial',
     fontSize: 25,
-    color: 'white',
+    color: '#121212',
     height: 69,
     width: 263,
-    backgroundColor: '#61DFE7',
+    backgroundColor: 'rgba(196,255,252,1)',
     textAlign: 'center',
     borderRadius: 25,
     marginTop: 15,
@@ -56,11 +81,10 @@ export default StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    width: 175,
+    width: 300,
     height: 69,
-    backgroundColor: '#FD9F32',
     borderRadius: 25,
-    marginTop: 25,
+    margin: 15,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -68,23 +92,10 @@ export default StyleSheet.create({
     },
     shadowOpacity: 0.44,
     shadowRadius: 5,
-
   },
-  login: {
+  buttonTime: {
+    fontSize: 25,
+    color: '#FCFFFF',
     fontFamily: 'Avenir-Medium',
-    color: 'white',
-    textAlign: 'center',
-    alignItems: 'center',
-    fontSize: 30,
-    marginTop: 8,
   },
-  login1: {
-    fontFamily: 'Avenir-Medium',
-    color: 'white',
-    textAlign: 'center',
-    alignItems: 'center',
-    fontSize: 30,
-    marginTop: 8,
-  },
-
 });

@@ -1,109 +1,28 @@
+/* eslint-disable radix */
+/* eslint-disable max-len */
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-underscore-dangle */
 import React, { useEffect, useState } from 'react';
 import {
-  StyleSheet,
   Text,
-  Button,
   SafeAreaView,
   TouchableOpacity,
   ScrollView,
+  View,
 } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import BackgroundTimer from 'react-native-background-timer';
 import { SubmitTime } from '../../redux/actions/userCreators';
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-    backgroundColor: '#000',
-  },
-  time: {
-    fontSize: 30,
-    color: '#fff',
-    marginBottom: 30,
-    textAlign: 'center',
-  },
-  image: {
-    marginTop: 100,
-    width: 200,
-    height: 200,
-  },
-  email: {
-    fontFamily: 'arial',
-    fontSize: 25,
-    color: '#121212',
-    height: 69,
-    width: 263,
-    backgroundColor: 'rgba(196,255,252,1)',
-    textAlign: 'center',
-    borderRadius: 25,
-    marginTop: 100,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 8,
-    },
-    shadowOpacity: 0.44,
-    shadowRadius: 5,
-
-  },
-  email1: {
-    fontFamily: 'arial',
-    fontSize: 25,
-    color: '#121212',
-    height: 69,
-    width: 263,
-    backgroundColor: 'rgba(196,255,252,1)',
-    textAlign: 'center',
-    borderRadius: 25,
-    marginTop: 15,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 8,
-    },
-    shadowOpacity: 0.44,
-    shadowRadius: 5,
-
-  },
-  button: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 300,
-    height: 69,
-    backgroundColor: 'rgba(30,191,178,1)',
-    borderRadius: 25,
-    marginTop: 25,
-    marginBottom: 25,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 8,
-    },
-    shadowOpacity: 0.44,
-    shadowRadius: 5,
-
-  },
-  login: {
-    fontFamily: 'arial',
-    color: '#121212',
-    textAlign: 'center',
-    alignItems: 'center',
-    fontSize: 30,
-    marginTop: 8,
-  },
-});
+import styles from './moment.style';
 
 export default function Moment({ setisStarted }) {
   const dispatch = useDispatch();
   const [secondsLeft, setSecondsLeft] = useState(0);
   const [started, setStarted] = useState(false);
   const activityId = useSelector(({ loadActivity }) => loadActivity._id);
+  const userId = useSelector(({ loggedUser }) => loggedUser?.user?._id);
+
   // Runs when timerOn value changes to start or stop timer
   const clockify = () => {
     const hours = Math.floor(secondsLeft / 60 / 60);
@@ -131,12 +50,27 @@ export default function Moment({ setisStarted }) {
       });
     }, 1000);
   };
+  const activity = useSelector(({ loadActivity }) => loadActivity?.activityTime);
+  const activitycolor = useSelector(({ loadActivity }) => loadActivity?.color);
+  function timeCalculator() {
+    const reducer = (a, b) => a + b;
+    const hours = activity.map((e) => e.hours);
+    const minutes = activity.map((e) => e.minutes);
+    const seconds = activity.map((e) => e.seconds);
+    const totalSeconds = seconds?.reduce(reducer, parseInt(clockify().displaySecs)) % 60;
+    const acumulatedMinutes = Math.floor(seconds?.reduce(reducer, parseInt(clockify().displaySecs)) / 60);
+    const totalMinutes = (minutes?.reduce(reducer, parseInt(clockify().displayMins)) + acumulatedMinutes) % 60;
+    const acumulatedHours = Math.floor(totalMinutes / 60);
+    const totalHours = (hours?.reduce(reducer, parseInt(clockify().displayHours))) + acumulatedHours;
+    const newTotalTime = `${totalHours}:${totalMinutes}:${totalSeconds}`;
+    return (newTotalTime);
+  }
   const stopTimer = () => {
     dispatch(SubmitTime(activityId, {
       hours: clockify().displayHours,
       minutes: clockify().displayMins,
       seconds: clockify().displaySecs,
-    }));
+    }, timeCalculator(), userId));
     setisStarted(false);
     setStarted(false);
     setSecondsLeft(0);
@@ -144,8 +78,6 @@ export default function Moment({ setisStarted }) {
     BackgroundTimer.stopBackgroundTimer();
   };
 
-  const activity = useSelector(({ loadActivity }) => loadActivity?.activityTime);
-  console.log(activity);
   return (
     <SafeAreaView style={styles.container}>
 
@@ -163,13 +95,26 @@ export default function Moment({ setisStarted }) {
         {' '}
 
       </Text>
-      <Button title="Start" disabled={started} onPress={() => startTimer()} />
-      <Button title="Stop tracking" disabled={!started} onPress={() => stopTimer()} />
-      <ScrollView bounces={false} showsVerticalScrollIndicator={false} style={{ backgroundColor: '#000' }}>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.start} disabled={started || activitycolor === undefined} onPress={() => startTimer()}>
+          <Text style={styles.startText}>
+            ▶
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.start} disabled={!started} onPress={() => stopTimer()}>
+          <Text style={styles.startText}>
+            ■
+          </Text>
+        </TouchableOpacity>
+      </View>
+      <ScrollView bounces={false} showsVerticalScrollIndicator={false} style={{ backgroundColor: '#262155' }}>
 
         {activity?.slice(0).reverse().map((element) => (
-          <TouchableOpacity style={styles.button} key={element._id}>
-            <Text>
+          <TouchableOpacity
+            style={[styles.button, { backgroundColor: activitycolor }]}
+            key={element._id}
+          >
+            <Text style={styles.buttonTime}>
               {element.hours}
               :
               {element.minutes}

@@ -78,22 +78,28 @@ export function LoadUserInfo(access_token, userId) {
     }
   };
 }
-export function SubmitTime(activityId, body) {
+export function SubmitTime(activityId, body, newTotalTime, userId) {
   return async (dispatch) => {
     try {
       console.log('oo');
       console.log(body);
-      const { data } = await axios.put(`${API_URL}/api/activity/${activityId}`,
+      await axios.put(`${API_URL}/api/activity/${activityId}`,
         {
           type: 'timeUpdate',
           data:
             body,
 
         });
+      const { data } = await axios.put(`${API_URL}/api/activity/${activityId}`,
+        {
+          type: 'activityUpdate',
+          data: { totalTime: newTotalTime },
+        });
       dispatch({
         type: userTypes.LOAD_ACTIVITY,
         data,
       });
+      dispatch(UserActivities(userId));
     } catch (error) {
       console.log(error);
     }
@@ -112,6 +118,29 @@ export function CreateNewActivity(userId, body) {
       await axios.put(`${API_URL}/api/user/${userId}`, {
         activities: data._id,
       });
+      dispatch(UserActivities(userId));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+export function deleteActivity(userId, body) {
+  return async (dispatch) => {
+    try {
+      console.log('ii', body);
+      console.log('pp', userId);
+
+      await axios.delete(`${API_URL}/api/user/${userId}`,
+        {
+          data: body,
+        });
+      // await fetch(`${API_URL}/api/user/${userId}`, {
+      //   body: JSON.stringify(body),
+      //   method: 'DELETE',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      // });
       dispatch(UserActivities(userId));
     } catch (error) {
       console.log(error);

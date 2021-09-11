@@ -37,6 +37,9 @@ export default function Navegator() {
 
             <Stack.Screen
               name="MainApp"
+              options={{
+                headerShown: false,
+              }}
               component={MainAppNavegator}
             />
 

@@ -4,7 +4,7 @@
 /* eslint-disable react/jsx-no-bind */
 import React, { useState } from 'react';
 import {
-  ScrollView,
+
   TextInput,
   TouchableOpacity,
   View,
@@ -17,7 +17,7 @@ import styles from './CreateActivity.style';
 
 export default function CreateActivity({ navigation }) {
   const dispatch = useDispatch();
-  const [color, setcolor] = useState('blue');
+  const [color, setcolor] = useState('#FF3B30');
   const [activityName, setActivityName] = useState('');
   const userId = useSelector(({ loggedUser }) => loggedUser?.user?._id);
   function submitActivity(name, co) {
@@ -30,11 +30,12 @@ export default function CreateActivity({ navigation }) {
     }
   }
   return (
-    <ScrollView>
-      <View style={styles.textContainer}>
+    <View style={styles.container}>
+      <View style={[styles.textContainer, { shadowColor: color }]}>
         <TouchableOpacity style={[styles.selectedColor, { backgroundColor: color }]} />
         <TextInput
           placeholder="Activity Name"
+          placeholderTextColor="#FCFFFF"
           autoCorrect={false}
           autoCapitalize="words"
           style={styles.activity}
@@ -44,12 +45,18 @@ export default function CreateActivity({ navigation }) {
         />
       </View>
       <TouchableOpacity style={styles.button} onPress={() => submitActivity(activityName, color)}>
-        <Text>Save</Text>
+        <Text style={styles.saveText}>Add</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.red} onPress={() => setcolor('red')} />
-      <TouchableOpacity style={styles.green} onPress={() => setcolor('green')} />
-      <TouchableOpacity style={styles.black} onPress={() => setcolor('black')} />
-
-    </ScrollView>
+      <View style={styles.colorContainer}>
+        <TouchableOpacity style={styles.lemon} onPress={() => setcolor('#FF3B30')} />
+        <TouchableOpacity style={styles.ny} onPress={() => setcolor('#FF9500')} />
+        <TouchableOpacity style={styles.green} onPress={() => setcolor('#FFCC00')} />
+        <TouchableOpacity style={styles.celeste} onPress={() => setcolor('#4CD964')} />
+        <TouchableOpacity style={styles.crayola} onPress={() => setcolor('#5AC8FA')} />
+        <TouchableOpacity style={styles.lavander} onPress={() => setcolor('#007AFF')} />
+        <TouchableOpacity style={styles.candy} onPress={() => setcolor('#5856D6')} />
+        <TouchableOpacity style={styles.pink} onPress={() => setcolor('#FF2D55')} />
+      </View>
+    </View>
   );
 }

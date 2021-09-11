@@ -15,7 +15,6 @@ activityRouter
   .route('/:activity')
   .get(activityController.getOneById)
   .put(activityController.putUpdate)
-  .all(passport.authenticate('jwt', { session: false }))
   .delete(activityController.deleteActivity);
 
 module.exports = activityRouter;

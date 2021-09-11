@@ -12,7 +12,7 @@ userRouter
   .route('/:userId')
   .put(usersController.updateOneUserById)
   .get(usersController.getOneUserById)
-  .all(passport.authenticate('jwt', { session: false }))
-  .delete(usersController.deleteOneUserById);
+  .delete(usersController.deleteOneUserActivityById)
+  .all(passport.authenticate('jwt', { session: false }));
 
 module.exports = userRouter;

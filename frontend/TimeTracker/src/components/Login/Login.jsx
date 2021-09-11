@@ -11,7 +11,7 @@ import {
   Image,
 } from 'react-native';
 import { useDispatch } from 'react-redux';
-import styles from './login.style';
+import styles from '../Register/register.style';
 import logInUser from '../../redux/actions/userCreators';
 // import store from '../../redux/store';
 
@@ -29,7 +29,7 @@ export default function Login({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Image source={require('../../public/image/hourglass.png')} style={styles.image} />
+      <Image source={require('../../public/image/timeOrange.png')} style={styles.image} />
       <TextInput
         placeholder="email"
         autoCorrect={false}

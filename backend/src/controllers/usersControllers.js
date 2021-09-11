@@ -25,14 +25,23 @@ async function getOneUserById({ params: { userId } }, res) {
     return res.send(error);
   }
 }
-async function deleteOneUserById({ params: { userId } }, res) {
+async function deleteOneUserActivityById({ params: { userId }, body }, res) {
+  const activityId = body?.activities;
+  console.log(body);
   try {
-    await User.findByIdAndDelete(userId);
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      { $pull: { activities: { $in: activityId } } },
+      { new: true },
 
-    res.send('The user has been deleted');
+    );
+
+    // if (!updatedUser) return res.sendStatus(404);
+
+    return res.json(updatedUser);
   } catch (error) {
     res.status(500);
-    res.send(error);
+    return res.send(error);
   }
 }
 async function updateOneUserById({ params: { userId }, body }, res) {
@@ -55,6 +64,6 @@ async function updateOneUserById({ params: { userId }, body }, res) {
 module.exports = {
   getUsers,
   getOneUserById,
-  deleteOneUserById,
+  deleteOneUserActivityById,
   updateOneUserById,
 };

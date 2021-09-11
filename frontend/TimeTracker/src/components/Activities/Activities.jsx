@@ -6,11 +6,12 @@ import React from 'react';
 import {
   SafeAreaView,
   ScrollView,
+  View,
   Text,
   TouchableOpacity,
 } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadCurrentActivity } from '../../redux/actions/userCreators';
+import { loadCurrentActivity, deleteActivity } from '../../redux/actions/userCreators';
 import styles from './activities.style';
 
 export default function Activities({ navigation }) {
@@ -23,30 +24,54 @@ export default function Activities({ navigation }) {
 
     navigation.navigate('MyTimer');
   }
+  const currentUserId = useSelector(({ loggedUser }) => loggedUser?.user?._id);
   const activities = useSelector(({ loggedUser }) => loggedUser?.user?.activities);
+  function removeActivity(activityId) {
+    dispatch(deleteActivity(currentUserId, {
+      activities: [activityId],
+    }));
+  }
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableOpacity
-        style={styles.addActivity}
-        onPress={() => navigation.push('CreateAct')}
-      >
-        <Text>Add Activity</Text>
-      </TouchableOpacity>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        {activities.map((element) => (
+      <Text style={styles.MyActivities}>MyActivities</Text>
+      <ScrollView style={styles.scroll} showsVerticalScrollIndicator={false}>
+        {activities.reverse().map((element) => (
           <>
             <TouchableOpacity
-              style={styles.button}
+              style={[styles.button, { backgroundColor: element.color }]}
               onPress={() => setActivity(element._id)}
               key={element._id}
             >
-              <Text key={element}>
-                {element.activityName}
-              </Text>
+              <View style={styles.info}>
+                <Text key={element} style={styles.text}>
+                  {element.activityName}
+                </Text>
+                <Text style={styles.totalTime}>
+
+                  {element.totalTime}
+
+                </Text>
+                <TouchableOpacity
+                  style={styles.x}
+                  onPress={() => removeActivity(element._id)}
+                >
+                  <Text style={styles.xText}>x</Text>
+                </TouchableOpacity>
+              </View>
+
             </TouchableOpacity>
           </>
         ))}
       </ScrollView>
+      <TouchableOpacity
+        style={styles.addActivity}
+        onPress={() => navigation.push('CreateAct')}
+      >
+        <Text style={styles.addText}>
+          +
+
+        </Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
