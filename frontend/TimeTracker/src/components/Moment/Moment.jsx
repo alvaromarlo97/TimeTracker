@@ -96,7 +96,7 @@ export default function Moment({ setisStarted }) {
 
       </Text>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.start} disabled={started} onPress={() => startTimer()}>
+        <TouchableOpacity style={styles.start} disabled={started || activitycolor === undefined} onPress={() => startTimer()}>
           <Text style={styles.startText}>
             ▶
           </Text>

@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
+
   container: {
     flex: 1,
-    backgroundColor: 'rgba(235,255,254,1)',
+    backgroundColor: '#262155',
     borderRadius: 25,
     display: 'flex',
     alignItems: 'center',
@@ -14,12 +15,12 @@ export default StyleSheet.create({
     height: 200,
   },
   email: {
-    fontFamily: 'arial',
+    fontFamily: 'Avenir-Medium',
     fontSize: 25,
-    color: '#121212',
+    color: 'white',
     height: 69,
     width: 263,
-    backgroundColor: 'rgba(196,255,252,1)',
+    backgroundColor: '#61DFE7',
     textAlign: 'center',
     borderRadius: 25,
     marginTop: 100,
@@ -33,12 +34,12 @@ export default StyleSheet.create({
 
   },
   email1: {
-    fontFamily: 'arial',
+    fontFamily: 'Avenir-Medium',
     fontSize: 25,
-    color: '#121212',
+    color: 'white',
     height: 69,
     width: 263,
-    backgroundColor: 'rgba(196,255,252,1)',
+    backgroundColor: '#61DFE7',
     textAlign: 'center',
     borderRadius: 25,
     marginTop: 15,
@@ -57,7 +58,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     width: 175,
     height: 69,
-    backgroundColor: 'rgba(30,191,178,1)',
+    backgroundColor: '#FD9F32',
     borderRadius: 25,
     marginTop: 25,
     shadowColor: '#000',
@@ -70,16 +71,16 @@ export default StyleSheet.create({
 
   },
   login: {
-    fontFamily: 'arial',
-    color: 'rgba(235,255,254,1)',
+    fontFamily: 'Avenir-Medium',
+    color: 'white',
     textAlign: 'center',
     alignItems: 'center',
     fontSize: 30,
     marginTop: 8,
   },
   login1: {
-    fontFamily: 'arial',
-    color: '#121212',
+    fontFamily: 'Avenir-Medium',
+    color: 'white',
     textAlign: 'center',
     alignItems: 'center',
     fontSize: 30,

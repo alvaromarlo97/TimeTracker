@@ -33,7 +33,7 @@ export default function Register({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Image source={require('../../public/image/hourglass.png')} style={styles.image} />
+      <Image source={require('../../public/image/timeOrange.png')} style={styles.image} />
       <TextInput
         placeholder="username"
         autoCorrect={false}
