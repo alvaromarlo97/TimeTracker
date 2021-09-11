@@ -78,17 +78,22 @@ export function LoadUserInfo(access_token, userId) {
     }
   };
 }
-export function SubmitTime(activityId, body) {
+export function SubmitTime(activityId, body, newTotalTime) {
   return async (dispatch) => {
     try {
       console.log('oo');
       console.log(body);
-      const { data } = await axios.put(`${API_URL}/api/activity/${activityId}`,
+      await axios.put(`${API_URL}/api/activity/${activityId}`,
         {
           type: 'timeUpdate',
           data:
             body,
 
+        });
+      const { data } = await axios.put(`${API_URL}/api/activity/${activityId}`,
+        {
+          type: 'activityUpdate',
+          data: { totalTime: newTotalTime },
         });
       dispatch({
         type: userTypes.LOAD_ACTIVITY,

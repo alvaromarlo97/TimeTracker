@@ -9,6 +9,7 @@ const activitiesSchema = Schema({
       seconds: Number,
       date: { type: Date, default: new Date() },
     }],
+  totalTime: String,
   color: String,
 });
 module.exports = model('Activities', activitiesSchema);

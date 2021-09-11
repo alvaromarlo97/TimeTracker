@@ -46,23 +46,36 @@ export default function Moment({ setisStarted }) {
       });
     }, 1000);
   };
+  const activity = useSelector(({ loadActivity }) => loadActivity?.activityTime);
+  const activitycolor = useSelector(({ loadActivity }) => loadActivity?.color);
+  function timeCalculator() {
+    const reducer = (a, b) => a + b;
+    const hours = activity.map((e) => e.hours);
+    const minutes = activity.map((e) => e.minutes);
+    const seconds = activity.map((e) => e.seconds);
+    const totalSeconds = seconds?.reduce(reducer, parseInt(clockify().displaySecs)) % 60;
+    const acumulatedMinutes = Math.floor(seconds?.reduce(reducer, parseInt(clockify().displaySecs)) / 60);
+    const totalMinutes = (minutes?.reduce(reducer, parseInt(clockify().displayMins)) + acumulatedMinutes) % 60;
+    const acumulatedHours = Math.floor(totalMinutes / 60);
+    const totalHours = (hours?.reduce(reducer, parseInt(clockify().displayHours))) + acumulatedHours;
+    const newTotalTime = `${totalHours}:${totalMinutes}:${totalSeconds}`;
+    return (newTotalTime);
+  }
   const stopTimer = () => {
     dispatch(SubmitTime(activityId, {
       hours: clockify().displayHours,
       minutes: clockify().displayMins,
       seconds: clockify().displaySecs,
-    }));
+    }, timeCalculator()));
     setisStarted(false);
     setStarted(false);
     setSecondsLeft(0);
 
     BackgroundTimer.stopBackgroundTimer();
   };
+  const backTime = useSelector(({ loadActivity }) => loadActivity?.totalTime);
+  console.log(backTime);
 
-  const activity = useSelector(({ loadActivity }) => loadActivity?.activityTime);
-  const activitycolor = useSelector(({ loadActivity }) => loadActivity?.color);
-
-  console.log(activity);
   return (
     <SafeAreaView style={styles.container}>
 
