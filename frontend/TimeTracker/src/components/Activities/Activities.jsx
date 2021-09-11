@@ -35,7 +35,7 @@ export default function Activities({ navigation }) {
     <SafeAreaView style={styles.container}>
       <Text style={styles.MyActivities}>MyActivities</Text>
       <ScrollView style={styles.scroll} showsVerticalScrollIndicator={false}>
-        {activities.map((element) => (
+        {activities.reverse().map((element) => (
           <>
             <TouchableOpacity
               style={[styles.button, { backgroundColor: element.color }]}
