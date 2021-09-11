@@ -2,9 +2,11 @@
 /* eslint-disable max-len */
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { StyleSheet, View } from 'react-native';
 import {
-  VictoryBar, VictoryChart, VictoryPie, VictoryTheme,
+  StyleSheet, View, Text, ScrollView,
+} from 'react-native';
+import {
+  VictoryPie,
 } from 'victory-native';
 
 const styles = StyleSheet.create({
@@ -15,6 +17,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#262155',
 
+  },
+  ball: {
+    width: 25,
+    height: 25,
+    borderRadius: 50,
+  },
+  leyend: {
+    display: 'flex',
+    flexDirection: 'row',
+    width: 200,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 20,
   },
 
 });
@@ -40,7 +55,7 @@ export default function Stats() {
         labels={activities?.map((element) => element.activityName)}
         style={{
           data: {
-            fillOpacity: 1, stroke: '#262155', strokeWidth: 2,
+            fillOpacity: 1, stroke: '#262155', strokeWidth: 0,
           },
           labels: {
             fontSize: 15, fill: 'white',
@@ -50,6 +65,18 @@ export default function Stats() {
         width={300}
         labelRadius={({ innerRadius }) => innerRadius + 110}
       />
+      <ScrollView>
+        {activities?.map((element) => (
+          <View style={styles.leyend}>
+            <View style={[styles.ball, { backgroundColor: element.color }]} />
+            <Text style={{ color: 'white' }}>
+              {element.activityName}
+              {'     '}
+              {element.totalTime}
+            </Text>
+          </View>
+        ))}
+      </ScrollView>
     </View>
   );
 }
