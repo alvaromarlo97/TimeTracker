@@ -42,6 +42,14 @@ export default StyleSheet.create({
     backgroundColor: 'red',
     borderRadius: 50,
   },
+  logout: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 30,
+    height: 30,
+    borderRadius: 50,
+  },
   xText: {
     fontSize: 15,
     color: '#FCFFFF',
@@ -88,6 +96,7 @@ export default StyleSheet.create({
   },
   totalTime: {
     fontSize: 20,
+    width: 90,
     color: '#FCFFFF',
     fontFamily: 'Avenir-Medium',
   },
@@ -100,12 +109,18 @@ export default StyleSheet.create({
     marginTop: 25,
   },
   MyActivities: {
-    marginTop: 30,
     fontSize: 50,
     marginLeft: 20,
     color: '#FCFFFF',
     fontFamily: 'Avenir-Medium',
-    width: '100%',
+  },
+  header: {
+    marginTop: 30,
+    alignItems: 'center',
+    display: 'flex',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    width: '95%',
 
   },
 

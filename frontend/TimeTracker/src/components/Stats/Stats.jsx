@@ -69,7 +69,12 @@ export default function Stats() {
         {activities?.map((element) => (
           <View style={styles.leyend}>
             <View style={[styles.ball, { backgroundColor: element.color }]} />
-            <Text style={{ color: 'white' }}>
+            <Text style={{
+              fontSize: 20,
+              color: '#FCFFFF',
+              fontFamily: 'Avenir-Medium',
+            }}
+            >
               {element.activityName}
               {'     '}
               {element.totalTime}
