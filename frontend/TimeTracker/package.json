@@ -6,7 +6,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "test": "jest",
+    "test": "jest --watchAll --collect-coverage",
     "lint": "eslint ."
   },
   "dependencies": {
@@ -41,7 +41,9 @@
     "react-timer-hook": "^3.0.4",
     "redux": "^4.1.1",
     "redux-thunk": "^2.3.0",
-    "victory-native": "^35.5.4"
+    "victory-native": "^35.5.4",
+    "@testing-library/jest-native": "^4.0.2",
+    "@testing-library/react-native": "^7.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

@@ -44,7 +44,7 @@ export default function Activities({ navigation }) {
         </TouchableOpacity>
       </View>
       <ScrollView style={styles.scroll} showsVerticalScrollIndicator={false}>
-        {activities.reverse().map((element) => (
+        {activities?.reverse().map((element) => (
           <>
             <TouchableOpacity
               style={[styles.button, { backgroundColor: element.color }]}
