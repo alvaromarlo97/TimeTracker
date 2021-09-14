@@ -79,6 +79,7 @@ async function putUpdate(req, res) {
       break;
 
     default:
+      await res.status(500);
       break;
   }
 }

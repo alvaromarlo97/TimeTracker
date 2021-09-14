@@ -1,5 +1,5 @@
 const {
-  getAll, createOne, getOneById, updateOneActivity, deleteActivity, setNewTime,
+  getAll, createOne, getOneById, updateOneActivity, deleteActivity, putUpdate, setNewTime,
 } = require('./activitiesControllers');
 const Activity = require('../models/activity.model');
 
@@ -191,6 +191,47 @@ describe('Given a setNewTime function', () => {
         };
         Activity.find.mockRejectedValue();
         await setNewTime(req, res);
+
+        expect(res.status).toHaveBeenCalledWith(500);
+      });
+    });
+  });
+});
+
+describe('Given a putUpdate function', () => {
+  describe('When it is triggered', () => {
+    describe('And findById is resolved', () => {
+      test('Then res.json should be called', async () => {
+        req = { params: { activity: {} }, body: { data: {}, type: 'timeUpdate' } };
+        res = {
+          send: jest.fn(),
+          json: jest.fn(),
+        };
+        await putUpdate(req, res);
+
+        expect(res.json).toHaveBeenCalled();
+      });
+    });
+    describe('And findById is rejected', () => {
+      test('then call rejected', async () => {
+        req = { params: { activity: {} }, body: { data: {}, type: 'activityUpdate' } };
+        res = {
+          send: jest.fn(),
+          json: jest.fn(),
+        };
+        await putUpdate(req, res);
+
+        expect(res.json).toHaveBeenCalled();
+      });
+    });
+    describe('And findById is rejected', () => {
+      test('then call rejected', async () => {
+        req = { params: { activity: {} }, body: { data: {}, type: 'act' } };
+        res = {
+          send: jest.fn(),
+          status: jest.fn(),
+        };
+        await putUpdate(req, res);
 
         expect(res.status).toHaveBeenCalledWith(500);
       });

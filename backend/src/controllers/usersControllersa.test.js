@@ -1,5 +1,5 @@
 const {
-  getUsers, createUser, getOneUserById, deleteOneUserById, updateOneUserById,
+  getUsers, deleteOneUserActivityById, getOneUserById, updateOneUserById,
 } = require('./usersControllers');
 const User = require('../models/user.model');
 
@@ -33,37 +33,6 @@ describe('Given a getUsers function', () => {
         await getUsers(req, res);
 
         expect(res.status).toHaveBeenCalledWith(500);
-      });
-    });
-  });
-});
-
-describe('Given a createUser function', () => {
-  describe('When it is triggered', () => {
-    describe('And create is resolved', () => {
-      test('Then res.json should be called', async () => {
-        req = { body: {} };
-        res = { json: jest.fn(), status: jest.fn(), send: jest.fn() };
-        User.find.mockReturnValue({
-          populate: jest.fn().mockReturnValue({}),
-        });
-
-        await createUser(req, res);
-
-        expect(res.json).toHaveBeenCalled();
-      });
-    });
-    describe('And create is rejected', () => {
-      test('then call rejected', async () => {
-        req = { query: {} };
-        res = {
-          send: jest.fn(),
-          status: jest.fn(),
-        };
-        User.find.mockRejectedValue();
-        await createUser(req, res);
-
-        expect(res.status).toHaveBeenCalledWith(404);
       });
     });
   });
@@ -121,9 +90,9 @@ describe('Given a deleteOneUserById function', () => {
         res = { json: jest.fn(), status: jest.fn(), send: jest.fn() };
         User.findByIdAndDelete.mockReturnValue({});
 
-        await deleteOneUserById(req, res);
+        await deleteOneUserActivityById(req, res);
 
-        expect(res.send).toHaveBeenCalled();
+        expect(res.json).toHaveBeenCalled();
       });
     });
     describe('And findByIdAndDelete is rejected', () => {
@@ -133,8 +102,8 @@ describe('Given a deleteOneUserById function', () => {
           send: jest.fn(),
           status: jest.fn(),
         };
-        User.findByIdAndDelete.mockRejectedValue();
-        await deleteOneUserById(req, res);
+        User.findByIdAndUpdate.mockRejectedValue();
+        await deleteOneUserActivityById(req, res);
 
         expect(res.status).toHaveBeenCalledWith(500);
       });
@@ -148,23 +117,12 @@ describe('Given a updateOneUserById function', () => {
       test('Then res.json should be called', async () => {
         req = { params: { userId: {} }, body: {} };
         res = { json: jest.fn(), status: jest.fn(), send: jest.fn() };
-        User.findByIdAndDelete.mockReturnValue({});
+        User.findByIdAndUpdate.mockReturnValue({});
 
         await updateOneUserById(req, res);
 
         expect(res.json).toHaveBeenCalled();
       });
-      /*   test('And there is no user with that id', async () => {
-        req = { params: { userId: {} } };
-        res = {
-          json: jest.fn(), status: jest.fn(), send: jest.fn(), sendStatus: jest.fn(),
-        };
-        User.findByIdAndDelete.mockReturnValue(null);
-
-        await updateOneUserById(req, res);
-
-        expect(res.sendStatus).toHaveBeenCalledWith(404);
-      }); */
     });
     describe('And findByIdAndUpdate is rejected', () => {
       test('then call rejected', async () => {
