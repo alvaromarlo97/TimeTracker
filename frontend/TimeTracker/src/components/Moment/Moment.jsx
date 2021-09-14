@@ -70,6 +70,7 @@ export default function Moment({ setisStarted }) {
       hours: clockify().displayHours,
       minutes: clockify().displayMins,
       seconds: clockify().displaySecs,
+      date: new Date(),
     }, timeCalculator(), userId));
     setisStarted(false);
     setStarted(false);
@@ -121,6 +122,7 @@ export default function Moment({ setisStarted }) {
               :
               {element.seconds}
             </Text>
+            <Text style={{ color: 'white' }}>{element.date.slice(0, 10)}</Text>
           </TouchableOpacity>
         ))}
       </ScrollView>

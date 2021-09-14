@@ -8,10 +8,11 @@ import {
   ScrollView,
   View,
   Text,
+  Image,
   TouchableOpacity,
 } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadCurrentActivity, deleteActivity } from '../../redux/actions/userCreators';
+import { loadCurrentActivity, deleteActivity, logOutUser } from '../../redux/actions/userCreators';
 import styles from './activities.style';
 
 export default function Activities({ navigation }) {
@@ -33,9 +34,17 @@ export default function Activities({ navigation }) {
   }
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.MyActivities}>MyActivities</Text>
+      <View style={styles.header}>
+        <Text style={styles.MyActivities}>MyActivities</Text>
+        <TouchableOpacity
+          style={styles.logout}
+          onPress={() => dispatch(logOutUser())}
+        >
+          <Image source={require('../../public/image/logout.png')} style={styles.logout} />
+        </TouchableOpacity>
+      </View>
       <ScrollView style={styles.scroll} showsVerticalScrollIndicator={false}>
-        {activities.reverse().map((element) => (
+        {activities?.reverse().map((element) => (
           <>
             <TouchableOpacity
               style={[styles.button, { backgroundColor: element.color }]}

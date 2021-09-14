@@ -1,0 +1,319 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a Character Component When it is rendered Then screen should match the snapshot 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#262155",
+      "display": "flex",
+      "justifyContent": "center",
+      "minHeight": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#262155",
+          "borderBottomLeftRadius": 25,
+          "borderBottomRightRadius": 25,
+          "display": "flex",
+          "elevation": 20,
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "paddingLeft": 50,
+          "shadowOffset": Object {
+            "height": 10,
+            "width": 0,
+          },
+          "shadowOpacity": 0.51,
+          "shadowRadius": 13.16,
+        },
+        Object {
+          "shadowColor": "#FF3B30",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={false}
+      nativeID="animatedComponent"
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#FF3B30",
+          "borderRadius": 50,
+          "height": 50,
+          "marginRight": 50,
+          "opacity": 1,
+          "width": 50,
+        }
+      }
+    />
+    <TextInput
+      autoCapitalize="words"
+      autoCorrect={false}
+      onChangeText={[Function]}
+      placeholder="Activity Name"
+      placeholderTextColor="#FCFFFF"
+      style={
+        Object {
+          "alignItems": "center",
+          "color": "#FCFFFF",
+          "display": "flex",
+          "flex": 1,
+          "fontFamily": "Avenir-Medium",
+          "fontSize": 25,
+          "height": 200,
+          "width": "100%",
+        }
+      }
+      value=""
+    />
+  </View>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    nativeID="animatedComponent"
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#FD9F32",
+        "borderRadius": 10,
+        "display": "flex",
+        "height": 69,
+        "justifyContent": "center",
+        "margin": 30,
+        "opacity": 1,
+        "shadowColor": "#000",
+        "width": 175,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#FCFFFF",
+          "fontFamily": "Avenir-Medium",
+          "fontSize": 25,
+        }
+      }
+    >
+      Add
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+        "flexWrap": "wrap",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      nativeID="animatedComponent"
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#FF3B30",
+          "borderRadius": 50,
+          "height": 50,
+          "margin": 20,
+          "opacity": 1,
+          "width": 50,
+        }
+      }
+    />
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      nativeID="animatedComponent"
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#FF9500",
+          "borderRadius": 50,
+          "height": 50,
+          "margin": 20,
+          "opacity": 1,
+          "width": 50,
+        }
+      }
+    />
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      nativeID="animatedComponent"
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#FFCC00",
+          "borderRadius": 50,
+          "height": 50,
+          "margin": 20,
+          "opacity": 1,
+          "width": 50,
+        }
+      }
+    />
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      nativeID="animatedComponent"
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#4CD964",
+          "borderRadius": 50,
+          "height": 50,
+          "margin": 20,
+          "opacity": 1,
+          "width": 50,
+        }
+      }
+    />
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      nativeID="animatedComponent"
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#5AC8FA",
+          "borderRadius": 50,
+          "height": 50,
+          "margin": 20,
+          "opacity": 1,
+          "width": 50,
+        }
+      }
+    />
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      nativeID="animatedComponent"
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#007AFF",
+          "borderRadius": 50,
+          "height": 50,
+          "margin": 20,
+          "opacity": 1,
+          "width": 50,
+        }
+      }
+    />
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      nativeID="animatedComponent"
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#5856D6",
+          "borderRadius": 50,
+          "height": 50,
+          "margin": 20,
+          "opacity": 1,
+          "width": 50,
+        }
+      }
+    />
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      nativeID="animatedComponent"
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#FF2D55",
+          "borderRadius": 50,
+          "height": 50,
+          "margin": 20,
+          "opacity": 1,
+          "width": 50,
+        }
+      }
+    />
+  </View>
+</View>
+`;

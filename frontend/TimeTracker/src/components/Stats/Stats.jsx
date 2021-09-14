@@ -42,9 +42,9 @@ export default function Stats() {
 
   const separetedTimes = totalTimes?.map((e) => e?.split(':'));
 
-  const minutesToSecs = (separetedTimes.map((e) => e.map((i, index) => (index === 1 ? parseInt(i * 60) : parseInt(i)))));
-  const hoursToSecs = (minutesToSecs.map((e) => e.map((i, index) => (index === 0 ? parseInt(i * 60 * 60) : parseInt(i)))));
-  const total = hoursToSecs.map((e) => e.reduce((a, b) => a + b));
+  const minutesToSecs = (separetedTimes?.map((e) => e.map((i, index) => (index === 1 ? parseInt(i * 60) : parseInt(i)))));
+  const hoursToSecs = (minutesToSecs?.map((e) => e.map((i, index) => (index === 0 ? parseInt(i * 60 * 60) : parseInt(i)))));
+  const total = hoursToSecs?.map((e) => e.reduce((a, b) => a + b));
   console.log(total);
 
   return (
@@ -69,7 +69,12 @@ export default function Stats() {
         {activities?.map((element) => (
           <View style={styles.leyend}>
             <View style={[styles.ball, { backgroundColor: element.color }]} />
-            <Text style={{ color: 'white' }}>
+            <Text style={{
+              fontSize: 20,
+              color: '#FCFFFF',
+              fontFamily: 'Avenir-Medium',
+            }}
+            >
               {element.activityName}
               {'     '}
               {element.totalTime}

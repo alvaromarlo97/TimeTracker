@@ -17,6 +17,12 @@ function loginUserReducer(loggedUser = {
         user: action.data,
       };
       break;
+    case loginActions.LOGOUT_USER:
+      newLoggedUser = {
+        isAuthenticated: false,
+
+      };
+      break;
     default:
       break;
   }

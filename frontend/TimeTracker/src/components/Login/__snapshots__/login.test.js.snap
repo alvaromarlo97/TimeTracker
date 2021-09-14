@@ -1,0 +1,164 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a Character Component When it is rendered Then screen should match the snapshot 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#262155",
+      "borderRadius": 25,
+      "display": "flex",
+      "flex": 1,
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../src/public/image/timeOrange.png",
+      }
+    }
+    style={
+      Object {
+        "height": 200,
+        "marginTop": 100,
+        "width": 200,
+      }
+    }
+  />
+  <TextInput
+    autoCapitalize="words"
+    autoCorrect={false}
+    onChangeText={[Function]}
+    placeholder="email"
+    style={
+      Object {
+        "backgroundColor": "#61DFE7",
+        "borderRadius": 25,
+        "color": "white",
+        "fontFamily": "Avenir-Medium",
+        "fontSize": 25,
+        "height": 69,
+        "marginTop": 100,
+        "shadowColor": "#000",
+        "shadowOffset": Object {
+          "height": 8,
+          "width": 0,
+        },
+        "shadowOpacity": 0.44,
+        "shadowRadius": 5,
+        "textAlign": "center",
+        "width": 263,
+      }
+    }
+    value=""
+  />
+  <TextInput
+    onChangeText={[Function]}
+    placeholder="password"
+    secureTextEntry={true}
+    style={
+      Object {
+        "backgroundColor": "#61DFE7",
+        "borderRadius": 25,
+        "color": "white",
+        "fontFamily": "Avenir-Medium",
+        "fontSize": 25,
+        "height": 69,
+        "marginTop": 15,
+        "shadowColor": "#000",
+        "shadowOffset": Object {
+          "height": 8,
+          "width": 0,
+        },
+        "shadowOpacity": 0.44,
+        "shadowRadius": 5,
+        "textAlign": "center",
+        "width": 263,
+      }
+    }
+    value=""
+  />
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    nativeID="animatedComponent"
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#FD9F32",
+        "borderRadius": 25,
+        "display": "flex",
+        "height": 69,
+        "justifyContent": "center",
+        "marginTop": 25,
+        "opacity": 1,
+        "shadowColor": "#000",
+        "shadowOffset": Object {
+          "height": 8,
+          "width": 0,
+        },
+        "shadowOpacity": 0.44,
+        "shadowRadius": 5,
+        "width": 175,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "alignItems": "center",
+          "color": "white",
+          "fontFamily": "Avenir-Medium",
+          "fontSize": 30,
+          "marginTop": 8,
+          "textAlign": "center",
+        }
+      }
+    >
+      Login
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    nativeID="animatedComponent"
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "alignItems": "center",
+          "color": "white",
+          "fontFamily": "Avenir-Medium",
+          "fontSize": 30,
+          "marginTop": 8,
+          "textAlign": "center",
+        }
+      }
+    >
+      Register
+    </Text>
+  </View>
+</View>
+`;

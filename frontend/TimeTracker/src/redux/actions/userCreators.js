@@ -20,6 +20,17 @@ export function UserActivities(userId) {
     }
   };
 }
+export function logOutUser() {
+  return (dispatch) => {
+    try {
+      dispatch({
+        type: userTypes.LOGOUT_USER,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
 export default function logInUser(body) {
   return async (dispatch) => {
     try {
