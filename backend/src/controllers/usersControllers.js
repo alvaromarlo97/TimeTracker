@@ -27,7 +27,6 @@ async function getOneUserById({ params: { userId } }, res) {
 }
 async function deleteOneUserActivityById({ params: { userId }, body }, res) {
   const activityId = body?.activities;
-  console.log(body);
   try {
     const updatedUser = await User.findByIdAndUpdate(
       userId,

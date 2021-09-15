@@ -12,7 +12,6 @@ function userActivities(Activities = [], action) {
     default:
       break;
   }
-  console.log(newActivities);
   return newActivities;
 }
 

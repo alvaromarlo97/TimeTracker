@@ -36,16 +36,11 @@ const styles = StyleSheet.create({
 
 export default function Stats() {
   const activities = useSelector(({ loggedUser }) => loggedUser?.user?.activities);
-  console.log('ii', activities?.map((element) => element));
-  console.log(activities?.map((element) => element?.activityTime?.map((i, index) => i[index])));
   const totalTimes = activities?.map((element) => element.totalTime);
-
   const separetedTimes = totalTimes?.map((e) => e?.split(':'));
-
   const minutesToSecs = (separetedTimes?.map((e) => e.map((i, index) => (index === 1 ? parseInt(i * 60) : parseInt(i)))));
   const hoursToSecs = (minutesToSecs?.map((e) => e.map((i, index) => (index === 0 ? parseInt(i * 60 * 60) : parseInt(i)))));
   const total = hoursToSecs?.map((e) => e.reduce((a, b) => a + b));
-  console.log(total);
 
   return (
     <View style={styles.container}>

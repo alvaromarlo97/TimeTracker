@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a Character Component When it is rendered Then screen should match the snapshot 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#262155",
+      "borderRadius": 0,
+      "display": "flex",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "marginTop": 30,
+        "width": "95%",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#FCFFFF",
+          "fontFamily": "Avenir-Medium",
+          "fontSize": 50,
+          "marginLeft": 20,
+        }
+      }
+    >
+      MyActivities
+    </Text>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      nativeID="animatedComponent"
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "borderRadius": 50,
+          "display": "flex",
+          "height": 30,
+          "justifyContent": "center",
+          "opacity": 1,
+          "width": 30,
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../src/public/image/logout.png",
+          }
+        }
+        style={
+          Object {
+            "alignItems": "center",
+            "borderRadius": 50,
+            "display": "flex",
+            "height": 30,
+            "justifyContent": "center",
+            "width": 30,
+          }
+        }
+      />
+    </View>
+  </View>
+  <RCTScrollView
+    showsVerticalScrollIndicator={false}
+    style={
+      Object {
+        "borderBottomLeftRadius": 10,
+        "borderTopLeftRadius": 50,
+        "marginBottom": -50,
+        "marginTop": 5,
+        "width": "100%",
+      }
+    }
+  >
+    <View />
+  </RCTScrollView>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    nativeID="animatedComponent"
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#FD9F32",
+        "borderRadius": 50,
+        "display": "flex",
+        "height": 100,
+        "justifyContent": "center",
+        "marginBottom": 20,
+        "marginTop": 20,
+        "opacity": 1,
+        "width": 100,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#FCFFFF",
+          "fontFamily": "Avenir-Medium",
+          "fontSize": 50,
+        }
+      }
+    >
+      +
+    </Text>
+  </View>
+</RCTSafeAreaView>
+`;
