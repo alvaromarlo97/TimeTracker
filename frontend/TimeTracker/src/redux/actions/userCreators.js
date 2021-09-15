@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable camelcase */
 /* eslint-disable import/no-unresolved */
@@ -14,9 +15,8 @@ export function UserActivities(userId) {
         type: userTypes.LOAD_USER_ACTIVITIES,
         data,
       });
-      console.log(data);
     } catch (error) {
-      console.log(error);
+      return error.message;
     }
   };
 }
@@ -27,7 +27,7 @@ export function logOutUser() {
         type: userTypes.LOGOUT_USER,
       });
     } catch (error) {
-      console.log(error);
+      return error.message;
     }
   };
 }
@@ -40,7 +40,7 @@ export default function logInUser(body) {
         data,
       });
     } catch (error) {
-      console.log(error);
+      return error.message;
     }
   };
 }
@@ -53,7 +53,7 @@ export function RegisterUser(body) {
         data,
       });
     } catch (error) {
-      console.log(error);
+      return error.message;
     }
   };
 }
@@ -67,7 +67,7 @@ export function loadCurrentActivity(activityId) {
         data,
       });
     } catch (error) {
-      console.log(error);
+      return error.message;
     }
   };
 }
@@ -85,15 +85,13 @@ export function LoadUserInfo(access_token, userId) {
         data,
       });
     } catch (error) {
-      console.log(error);
+      return error.message;
     }
   };
 }
 export function SubmitTime(activityId, body, newTotalTime, userId) {
   return async (dispatch) => {
     try {
-      console.log('oo');
-      console.log(body);
       await axios.put(`${API_URL}/api/activity/${activityId}`,
         {
           type: 'timeUpdate',
@@ -112,35 +110,30 @@ export function SubmitTime(activityId, body, newTotalTime, userId) {
       });
       dispatch(UserActivities(userId));
     } catch (error) {
-      console.log(error);
+      return error.message;
     }
   };
 }
 export function CreateNewActivity(userId, body) {
   return async (dispatch) => {
     try {
-      console.log(body);
       const { data } = await axios.post(`${API_URL}/api/activity`, body);
       dispatch({
         type: userTypes.CREATE_ACTIVITY,
         data,
       });
-      console.log(data);
       await axios.put(`${API_URL}/api/user/${userId}`, {
         activities: data._id,
       });
       dispatch(UserActivities(userId));
     } catch (error) {
-      console.log(error);
+      return error.message;
     }
   };
 }
 export function deleteActivity(userId, body) {
   return async (dispatch) => {
     try {
-      console.log('ii', body);
-      console.log('pp', userId);
-
       await axios.delete(`${API_URL}/api/user/${userId}`,
         {
           data: body,
@@ -154,7 +147,7 @@ export function deleteActivity(userId, body) {
       // });
       dispatch(UserActivities(userId));
     } catch (error) {
-      console.log(error);
+      return error.message;
     }
   };
 }

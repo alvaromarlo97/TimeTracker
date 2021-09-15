@@ -14,7 +14,6 @@ import styles from './currentActivities.style';
 export default function CurrentActivity() {
   const activity = useSelector(({ loadActivity }) => loadActivity?.activityTime);
 
-  console.log('oo', activity);
   return (
     <SafeAreaView style={styles.container}>
 
