@@ -45,31 +45,31 @@ export default function Activities({ navigation }) {
       </View>
       <ScrollView style={styles.scroll} showsVerticalScrollIndicator={false}>
         {activities?.reverse().map((element) => (
-          <>
-            <TouchableOpacity
-              style={[styles.button, { backgroundColor: element.color }]}
-              onPress={() => setActivity(element._id)}
-              key={element._id}
-            >
-              <View style={styles.info}>
-                <Text key={element} style={styles.text}>
-                  {element.activityName}
-                </Text>
-                <Text style={styles.totalTime}>
 
-                  {element.totalTime}
+          <TouchableOpacity
+            style={[styles.button, { backgroundColor: element.color }]}
+            onPress={() => setActivity(element._id)}
+            key={element._id}
+          >
+            <View style={styles.info}>
+              <Text key={element} style={styles.text}>
+                {element.activityName}
+              </Text>
+              <Text style={styles.totalTime}>
 
-                </Text>
-                <TouchableOpacity
-                  style={styles.x}
-                  onPress={() => removeActivity(element._id)}
-                >
-                  <Text style={styles.xText}>x</Text>
-                </TouchableOpacity>
-              </View>
+                {element.totalTime}
 
-            </TouchableOpacity>
-          </>
+              </Text>
+              <TouchableOpacity
+                style={styles.x}
+                onPress={() => removeActivity(element._id)}
+              >
+                <Text style={styles.xText}>x</Text>
+              </TouchableOpacity>
+            </View>
+
+          </TouchableOpacity>
+
         ))}
       </ScrollView>
       <TouchableOpacity
