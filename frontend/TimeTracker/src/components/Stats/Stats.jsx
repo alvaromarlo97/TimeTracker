@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable radix */
 /* eslint-disable max-len */
 import React from 'react';
@@ -62,7 +63,7 @@ export default function Stats() {
       />
       <ScrollView>
         {activities?.map((element) => (
-          <View style={styles.leyend}>
+          <View key={element._id} style={styles.leyend}>
             <View style={[styles.ball, { backgroundColor: element.color }]} />
             <Text style={{
               fontSize: 20,
